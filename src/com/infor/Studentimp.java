@@ -63,17 +63,18 @@ public class Studentimp implements Istudent{
 
     @Override
     public ArrayList findAll(Students obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+        return findAll(obj);
     }
 
     @Override
     public void update(Students id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void delete(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     

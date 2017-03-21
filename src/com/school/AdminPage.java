@@ -116,7 +116,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         back.setBackground(new java.awt.Color(204, 204, 255));
         back.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        back.setText("Back");
+        back.setText("Logout");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);
