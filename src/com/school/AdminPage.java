@@ -17,6 +17,7 @@ public class AdminPage extends javax.swing.JFrame {
     RegisterStudent regis = new RegisterStudent();
     public AdminPage() {
         initComponents();
+         setLocationRelativeTo(null);
     }
 
     /**
@@ -84,6 +85,11 @@ public class AdminPage extends javax.swing.JFrame {
         getAllStudent.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getAllStudent.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         getAllStudent.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getAllStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getAllStudentActionPerformed(evt);
+            }
+        });
         getContentPane().add(getAllStudent);
         getAllStudent.setBounds(499, 171, 150, 178);
 
@@ -95,6 +101,11 @@ public class AdminPage extends javax.swing.JFrame {
         registerScore.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         registerScore.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         registerScore.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        registerScore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerScoreActionPerformed(evt);
+            }
+        });
         getContentPane().add(registerScore);
         registerScore.setBounds(62, 376, 160, 188);
 
@@ -116,6 +127,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         back.setBackground(new java.awt.Color(204, 204, 255));
         back.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Apply.png"))); // NOI18N
         back.setText("Logout");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +135,7 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(back);
-        back.setBounds(291, 514, 93, 43);
+        back.setBounds(291, 514, 140, 43);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -161,7 +173,8 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_registerStudentActionPerformed
 
     private void updateStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateStudentActionPerformed
-        // TODO add your handling code here:
+      UpDateStudent update = new UpDateStudent();
+      update.setVisible(true);
     }//GEN-LAST:event_updateStudentActionPerformed
 
     private void getoneStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getoneStudentActionPerformed
@@ -175,6 +188,16 @@ public class AdminPage extends javax.swing.JFrame {
         ind.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_backActionPerformed
+
+    private void registerScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerScoreActionPerformed
+        RegisterScore objj = new RegisterScore();
+        objj.setVisible(true);
+    }//GEN-LAST:event_registerScoreActionPerformed
+
+    private void getAllStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllStudentActionPerformed
+        GetAllStudent ko = new GetAllStudent();
+        ko.setVisible(true);
+    }//GEN-LAST:event_getAllStudentActionPerformed
 
     /**
      * @param args the command line arguments

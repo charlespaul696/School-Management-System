@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,7 +44,7 @@ public class Studentimp implements Istudent{
            pre.setString(12, obj.getDepartmentid());
            
            pre.executeUpdate();
-        
+         JOptionPane.showMessageDialog(null, " You Have Successfully Registered Student Number  "+obj.getId());
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -68,8 +69,27 @@ public class Studentimp implements Istudent{
     }
 
     @Override
-    public void update(Students id) {
-        
+    public void update(Students obj) {
+      try {
+            pre = conntecting.prepareStatement("UPDATE student SET firstName = ?,lastName = ?,otherName = ?,gender = ?,age = ?, state = ?, religion = ?,address = ?,phonenumber = ?,email = ?,Department_id = ? WHERE ID = ?");
+           pre.setString(12, obj.getId());
+           pre.setString(1, obj.getFname());
+           pre.setString(2, obj.getLname());
+           pre.setString(3, obj.getOname());
+           pre.setString(4, obj.getGender());
+           pre.setString(5, obj.getAge());
+           pre.setString(6, obj.getState());
+           pre.setString(7, obj.getReligion());
+           pre.setString(8, obj.getAddress());
+           pre.setString(9, obj.getPhone());
+           pre.setString(10, obj.getEmail());
+           pre.setString(11, obj.getDepartmentid());
+           
+           pre.execute();
+         JOptionPane.showMessageDialog(null, " You Have Successfully UpDated Student Number  "+obj.getId());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }   
     }
 
     @Override

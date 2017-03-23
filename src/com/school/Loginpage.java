@@ -19,6 +19,7 @@ public class Loginpage extends javax.swing.JFrame {
     public Loginpage() {
         initComponents();
         setTitle("       Peaceman International School");
+         setLocationRelativeTo(null);
     }
 
     /**
@@ -91,8 +92,9 @@ public class Loginpage extends javax.swing.JFrame {
         jLabel6.setText("UserName and Password to login into the System");
 
         blogin.setBackground(new java.awt.Color(51, 51, 51));
-        blogin.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        blogin.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         blogin.setForeground(new java.awt.Color(255, 255, 255));
+        blogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Unlock.png"))); // NOI18N
         blogin.setText("Login");
         blogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,8 +103,9 @@ public class Loginpage extends javax.swing.JFrame {
         });
 
         breset.setBackground(new java.awt.Color(51, 51, 51));
-        breset.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        breset.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         breset.setForeground(new java.awt.Color(255, 255, 255));
+        breset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Sync.png"))); // NOI18N
         breset.setText("Reset");
         breset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,8 +114,9 @@ public class Loginpage extends javax.swing.JFrame {
         });
 
         bcancel.setBackground(new java.awt.Color(51, 51, 51));
-        bcancel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        bcancel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         bcancel.setForeground(new java.awt.Color(255, 255, 255));
+        bcancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Bad mark.png"))); // NOI18N
         bcancel.setText("cancel");
         bcancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,11 +150,11 @@ public class Loginpage extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addComponent(blogin, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(breset, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(bcancel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(blogin)
+                .addGap(28, 28, 28)
+                .addComponent(breset)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bcancel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -175,11 +179,11 @@ public class Loginpage extends javax.swing.JFrame {
                     .addComponent(blogin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(breset, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bcancel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(160, 230, 460, 370);
+        jPanel1.setBounds(160, 230, 460, 310);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/school/schoolimage/building.jpg"))); // NOI18N
         getContentPane().add(jLabel7);

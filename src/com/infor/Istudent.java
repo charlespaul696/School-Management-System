@@ -15,6 +15,6 @@ public interface Istudent {
     public void create(Students obj);
     public void find(String id);
     public ArrayList findAll(Students obj);
-    public void update(Students id);
+    public void update(Students obj);
     public void delete(String id);
 }

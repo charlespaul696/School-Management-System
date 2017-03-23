@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,6 +39,7 @@ public class MarksDAO implements IMarks{
            
            pre.executeUpdate();
            
+            JOptionPane.showMessageDialog(null, " You Have Successfully Registered Student Number  "+obj.getStudentid());
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -45,7 +47,13 @@ public class MarksDAO implements IMarks{
 
     @Override
     public void find(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     try {
+            pre = con.prepareStatement("SELECT * FROM marksstore where id = ?");
+            pre.setString(1, id);
+            pre.executeQuery();
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }   
     }
 
     @Override
