@@ -28,6 +28,7 @@ public class GetAllStudent extends javax.swing.JFrame {
    private DefaultTableModel Model;
     public GetAllStudent() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -62,7 +63,9 @@ public class GetAllStudent extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(StudentTable);
 
+        reset.setBackground(new java.awt.Color(153, 153, 153));
         reset.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Database.png"))); // NOI18N
         reset.setText("Get All Data");
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,8 +73,10 @@ public class GetAllStudent extends javax.swing.JFrame {
             }
         });
 
+        can.setBackground(new java.awt.Color(153, 153, 153));
         can.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        can.setText("Cancel");
+        can.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Lock.png"))); // NOI18N
+        can.setText("Exit");
         can.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 canActionPerformed(evt);
@@ -86,20 +91,18 @@ public class GetAllStudent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(368, 368, 368)
                 .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(245, 245, 245)
-                .addComponent(can, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addGap(107, 107, 107)
+                .addComponent(can, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(reset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(can, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                        .addGap(10, 10, 10)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reset, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                    .addComponent(can, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -139,7 +142,6 @@ public class GetAllStudent extends javax.swing.JFrame {
                 data.add(add11);
                 String add12 = ree.getString("Department_id");
                 data.add(add12);
-
                 Model.addRow(data);
 
             }

@@ -5,7 +5,14 @@
  */
 package com.school;
 
+import MasterInfor.MasterPage;
+import connect.MySqLConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,6 +23,16 @@ public class Loginpage extends javax.swing.JFrame {
     /**
      * Creates new form Loginpage
      */
+    private PreparedStatement pre;
+    private ResultSet ree;
+     private PreparedStatement pree;
+    private ResultSet reee;
+    MySqLConnection my = new MySqLConnection();
+     Connection con = my.getConnect();
+     private String add2;
+     private String add3;
+      private String add4;
+     private String add5;
     public Loginpage() {
         initComponents();
         setTitle("       Peaceman International School");
@@ -96,6 +113,11 @@ public class Loginpage extends javax.swing.JFrame {
         blogin.setForeground(new java.awt.Color(255, 255, 255));
         blogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Unlock.png"))); // NOI18N
         blogin.setText("Login");
+        blogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                bloginMousePressed(evt);
+            }
+        });
         blogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bloginActionPerformed(evt);
@@ -117,7 +139,7 @@ public class Loginpage extends javax.swing.JFrame {
         bcancel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         bcancel.setForeground(new java.awt.Color(255, 255, 255));
         bcancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Bad mark.png"))); // NOI18N
-        bcancel.setText("cancel");
+        bcancel.setText("Exit");
         bcancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bcancelActionPerformed(evt);
@@ -187,7 +209,7 @@ public class Loginpage extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/school/schoolimage/building.jpg"))); // NOI18N
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(-80, 120, 830, 510);
+        jLabel7.setBounds(-80, 130, 830, 510);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -202,26 +224,59 @@ public class Loginpage extends javax.swing.JFrame {
     }//GEN-LAST:event_bresetActionPerformed
 
     private void bloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloginActionPerformed
+     String sql = "Select password,username from Signup where roll_id = 'admin'";
+     
+        try{
+            pre = con.prepareStatement(sql);
+          ree = pre.executeQuery();
+
+            while(ree.next()){
+             
+                add2 = ree.getString("username");
+                
+                add3 = ree.getString("password");
+                
+            }
+
+        String sqll = "Select password,username from Signup where roll_id = 'principal1'";
+     
+        
+            pree = con.prepareStatement(sqll);
+          reee = pree.executeQuery();
+
+            while(reee.next()){
+             
+                add4 = reee.getString("username");
+                
+                add5 = reee.getString("password");
+                
+            }
         String un = uname.getText();
         String pw = pword.getText();
         AdminPage obj = new AdminPage();
-        if(un.equalsIgnoreCase("Admin") && pw.equalsIgnoreCase("paul")){
+        if(un.matches(add2)&& pw.matches(add3)){
           uname.setText("");
           pword.setText("");
 
             obj.setVisible(true);
             setVisible(false);
         }
-        if(un.equalsIgnoreCase("SuperAdmin") && pw.equalsIgnoreCase("paul")){
-          uname.setText("");
-          pword.setText("");
-
+       else if(un.matches(add4)&& pw.matches(add5)){
+            MasterPage master = new MasterPage();
+            master.setVisible(true);
             JOptionPane.showMessageDialog(null, " THIS PAGE IS UNDER CONSTRUCTION ...");
-            setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null, "You are not Welcome....");
+            
+        }else if(!un.matches(add2)&& !pw.matches(add3) || !un.matches(add4)&& !pw.matches(add5)){
+            JOptionPane.showMessageDialog(null, "You have entered a wrong password or username....");
+        }
+         }catch(Exception e){
+
         }
     }//GEN-LAST:event_bloginActionPerformed
+
+    private void bloginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bloginMousePressed
+       
+    }//GEN-LAST:event_bloginMousePressed
 
     /**
      * @param args the command line arguments

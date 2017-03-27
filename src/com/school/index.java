@@ -5,6 +5,13 @@
  */
 package com.school;
 
+import connect.MySqLConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author charles
@@ -15,9 +22,14 @@ public class index extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     Loginpage obj = new Loginpage();
+     private PreparedStatement pre;
+    private ResultSet ree;
+    MySqLConnection my = new MySqLConnection();
+     Connection con = my.getConnect();
+   private DefaultTableModel Model;
     public index() {
         initComponents();
-        obj.setVisible(true);
+       obj.setVisible(true);
     }
 
     /**
@@ -30,6 +42,7 @@ public class index extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(300, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -8,8 +8,14 @@ package com.school;
 import com.infor.Istudent;
 import com.infor.Studentimp;
 import com.infor.Students;
+import connect.MySqLConnection;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,9 +29,31 @@ public class UpDateStudent extends javax.swing.JFrame {
     Istudent output = new Studentimp();
     Students get = new Students();
     DataInputStream out = new DataInputStream(System.in);
+    private PreparedStatement pre;
+    private ResultSet ree;
+    MySqLConnection my = new MySqLConnection();
+     Connection con = my.getConnect();
+     private DefaultTableModel model;
     public UpDateStudent() {
         initComponents();
          setLocationRelativeTo(null);
+          String sql = "Select id from student";
+        try{
+            pre = con.prepareStatement(sql);
+            ree = pre.executeQuery();
+            
+                while(ree.next()){
+                     Vector<Object> data = new Vector<>();
+                model = (DefaultTableModel) upt.getModel();
+                String add1 = ree.getString("id");
+                data.add(add1);
+                model.addRow(data);
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
     }
 
     /**
@@ -67,6 +95,8 @@ public class UpDateStudent extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        upt = new javax.swing.JTable();
 
         setBounds(new java.awt.Rectangle(300, 50, 0, 0));
 
@@ -93,31 +123,31 @@ public class UpDateStudent extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Age : ");
 
-        fn.setBackground(new java.awt.Color(204, 204, 255));
+        fn.setBackground(new java.awt.Color(255, 255, 255));
         fn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         fn.setForeground(new java.awt.Color(0, 0, 0));
         fn.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         fn.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        ln.setBackground(new java.awt.Color(204, 204, 255));
+        ln.setBackground(new java.awt.Color(255, 255, 255));
         ln.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         ln.setForeground(new java.awt.Color(0, 0, 0));
         ln.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         ln.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        on.setBackground(new java.awt.Color(204, 204, 255));
+        on.setBackground(new java.awt.Color(255, 255, 255));
         on.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         on.setForeground(new java.awt.Color(0, 0, 0));
         on.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         on.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        gd.setBackground(new java.awt.Color(204, 204, 255));
+        gd.setBackground(new java.awt.Color(255, 255, 255));
         gd.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         gd.setForeground(new java.awt.Color(0, 0, 0));
         gd.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         gd.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        age.setBackground(new java.awt.Color(204, 204, 255));
+        age.setBackground(new java.awt.Color(255, 255, 255));
         age.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         age.setForeground(new java.awt.Color(0, 0, 0));
         age.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
@@ -147,19 +177,19 @@ public class UpDateStudent extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Department ID : ");
 
-        st.setBackground(new java.awt.Color(204, 204, 255));
+        st.setBackground(new java.awt.Color(255, 255, 255));
         st.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         st.setForeground(new java.awt.Color(0, 0, 0));
         st.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         st.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        re.setBackground(new java.awt.Color(204, 204, 255));
+        re.setBackground(new java.awt.Color(255, 255, 255));
         re.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         re.setForeground(new java.awt.Color(0, 0, 0));
         re.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         re.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        ad.setBackground(new java.awt.Color(204, 204, 255));
+        ad.setBackground(new java.awt.Color(255, 255, 255));
         ad.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         ad.setForeground(new java.awt.Color(0, 0, 0));
         ad.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
@@ -170,19 +200,19 @@ public class UpDateStudent extends javax.swing.JFrame {
             }
         });
 
-        ph.setBackground(new java.awt.Color(204, 204, 255));
+        ph.setBackground(new java.awt.Color(255, 255, 255));
         ph.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         ph.setForeground(new java.awt.Color(0, 0, 0));
         ph.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         ph.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        email.setBackground(new java.awt.Color(204, 204, 255));
+        email.setBackground(new java.awt.Color(255, 255, 255));
         email.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         email.setForeground(new java.awt.Color(0, 0, 0));
         email.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         email.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        did.setBackground(new java.awt.Color(204, 204, 255));
+        did.setBackground(new java.awt.Color(255, 255, 255));
         did.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         did.setForeground(new java.awt.Color(0, 0, 0));
         did.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
@@ -201,7 +231,7 @@ public class UpDateStudent extends javax.swing.JFrame {
         cancel.setBackground(new java.awt.Color(153, 153, 153));
         cancel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Delete.png"))); // NOI18N
-        cancel.setText("Exist");
+        cancel.setText("Exit");
         cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelActionPerformed(evt);
@@ -356,7 +386,7 @@ public class UpDateStudent extends javax.swing.JFrame {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Before Sending To The Database");
 
-        id.setBackground(new java.awt.Color(204, 204, 255));
+        id.setBackground(new java.awt.Color(255, 255, 255));
         id.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         id.setForeground(new java.awt.Color(0, 0, 0));
         id.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
@@ -366,26 +396,38 @@ public class UpDateStudent extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Enter Student ID To UpDate  : ");
 
+        upt.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Student id"
+            }
+        ));
+        jScrollPane1.setViewportView(upt);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(168, 168, 168)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1)
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLayeredPane1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,6 +444,10 @@ public class UpDateStudent extends javax.swing.JFrame {
                     .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -507,11 +553,13 @@ public class UpDateStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField ln;
     private javax.swing.JTextField on;
     private javax.swing.JTextField ph;
     private javax.swing.JTextField re;
     private javax.swing.JButton register;
     private javax.swing.JTextField st;
+    private javax.swing.JTable upt;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,8 @@
  */
 package com.school;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author charles
@@ -15,6 +17,7 @@ public class AdminPage extends javax.swing.JFrame {
      * Creates new form AdminPage
      */
     RegisterStudent regis = new RegisterStudent();
+    Loginpage ind = new Loginpage();
     public AdminPage() {
         initComponents();
          setLocationRelativeTo(null);
@@ -38,16 +41,23 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        hel = new javax.swing.JMenuItem();
+        lo = new javax.swing.JMenuItem();
+        ex = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(300, 50, 0, 0));
+        setMinimumSize(new java.awt.Dimension(830, 700));
         setPreferredSize(new java.awt.Dimension(750, 630));
         getContentPane().setLayout(null);
 
         registerStudent.setBackground(new java.awt.Color(204, 204, 255));
         registerStudent.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        registerStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/school/schoolimage/addstudent.jpg"))); // NOI18N
+        registerStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/adds.jpg"))); // NOI18N
         registerStudent.setText("Register Student");
         registerStudent.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(204, 204, 255)));
         registerStudent.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -59,7 +69,7 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(registerStudent);
-        registerStudent.setBounds(62, 162, 160, 177);
+        registerStudent.setBounds(100, 180, 160, 180);
 
         getoneStudent.setBackground(new java.awt.Color(204, 204, 255));
         getoneStudent.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -75,11 +85,11 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(getoneStudent);
-        getoneStudent.setBounds(271, 162, 153, 177);
+        getoneStudent.setBounds(330, 180, 153, 177);
 
         getAllStudent.setBackground(new java.awt.Color(204, 204, 255));
         getAllStudent.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        getAllStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/school/schoolimage/allstudent.jpg"))); // NOI18N
+        getAllStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/getall.jpg"))); // NOI18N
         getAllStudent.setText("Get All Student");
         getAllStudent.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(204, 204, 255)));
         getAllStudent.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -91,7 +101,7 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(getAllStudent);
-        getAllStudent.setBounds(499, 171, 150, 178);
+        getAllStudent.setBounds(560, 180, 150, 178);
 
         registerScore.setBackground(new java.awt.Color(204, 204, 255));
         registerScore.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -107,7 +117,7 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(registerScore);
-        registerScore.setBounds(62, 376, 160, 188);
+        registerScore.setBounds(100, 380, 160, 160);
 
         updateStudent.setBackground(new java.awt.Color(204, 204, 255));
         updateStudent.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -123,11 +133,11 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(updateStudent);
-        updateStudent.setBounds(489, 367, 169, 188);
+        updateStudent.setBounds(560, 380, 150, 160);
 
         back.setBackground(new java.awt.Color(204, 204, 255));
         back.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Apply.png"))); // NOI18N
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Back.png"))); // NOI18N
         back.setText("Logout");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +145,7 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(back);
-        back.setBounds(291, 514, 140, 43);
+        back.setBounds(340, 570, 140, 43);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -159,11 +169,52 @@ public class AdminPage extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 68, 721, 24);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/school/schoolimage/building1.jpg"))); // NOI18N
-        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(102, 102, 255)));
-        jLabel4.setPreferredSize(new java.awt.Dimension(819, 600));
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, -20, 740, 610);
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/pay.jpg"))); // NOI18N
+        jButton1.setText("Mark Payment");
+        jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(204, 204, 255)));
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(jButton1);
+        jButton1.setBounds(330, 380, 150, 160);
+
+        jLabel5.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Admin page Activity", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 18))); // NOI18N
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(30, 130, 750, 480);
+
+        jMenu1.setText("File");
+
+        hel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/help.jpg"))); // NOI18N
+        hel.setText("Help");
+        hel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helActionPerformed(evt);
+            }
+        });
+        jMenu1.add(hel);
+
+        lo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Exit.png"))); // NOI18N
+        lo.setText("Logout");
+        lo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loActionPerformed(evt);
+            }
+        });
+        jMenu1.add(lo);
+
+        jMenuBar1.add(jMenu1);
+
+        ex.setText("Edit");
+        ex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(ex);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,7 +235,7 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_getoneStudentActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        Loginpage ind = new Loginpage();
+        
         ind.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_backActionPerformed
@@ -198,6 +249,22 @@ public class AdminPage extends javax.swing.JFrame {
         GetAllStudent ko = new GetAllStudent();
         ko.setVisible(true);
     }//GEN-LAST:event_getAllStudentActionPerformed
+
+    private void helActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helActionPerformed
+         JOptionPane.showMessageDialog(null, "To get the next paage, you have to select a field provided\n"
+               + "To you and make sure that you follow the instructions\n"
+               + "And if you fail to understand functionality of this program\n"
+               + "please contact a software engineer near you ");
+    }//GEN-LAST:event_helActionPerformed
+
+    private void loActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loActionPerformed
+       ind.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_loActionPerformed
+
+    private void exActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,12 +303,18 @@ public class AdminPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
+    private javax.swing.JMenu ex;
     private javax.swing.JButton getAllStudent;
     private javax.swing.JButton getoneStudent;
+    private javax.swing.JMenuItem hel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem lo;
     private javax.swing.JButton registerScore;
     private javax.swing.JButton registerStudent;
     private javax.swing.JButton updateStudent;
