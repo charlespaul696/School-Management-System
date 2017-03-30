@@ -20,23 +20,24 @@ import javax.swing.JOptionPane;
  * @author charles
  */
  
-public class ClassDAO implements Iclass{
+public class DepartmentDAO implements IDepartment{
     PreparedStatement pre;
     ResultSet result;
     MySqLConnection mySql = new MySqLConnection();
     Connection con = mySql.getConnect();
     @Override
-    public void create(Classs obj) {
+    public void create(Department obj) {
         try {
-            pre = con.prepareStatement("INSERT INTO class VALUES(?,?)");
+            pre = con.prepareStatement("INSERT INTO department VALUES(?,?)");
             
+         //  pre.setString(1, obj.getId());
            pre.setString(1, obj.getId());
            pre.setString(2, obj.getName());
           
            
            pre.executeUpdate();
            
-            JOptionPane.showMessageDialog(null, " You Have Successfully  ");
+            JOptionPane.showMessageDialog(null, " You Have Successfully Registered ");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -45,7 +46,7 @@ public class ClassDAO implements Iclass{
     @Override
     public void find(String id) {
      try {
-            pre = con.prepareStatement("SELECT * FROM marksstore where id = ?");
+            pre = con.prepareStatement("SELECT * FROM finacial where id = ?");
             pre.setString(1, id);
             pre.executeQuery();
         } catch (SQLException ex) {
@@ -54,19 +55,19 @@ public class ClassDAO implements Iclass{
     }
 
     @Override
-    public ArrayList findAll(Classs obj) {
-        return findAll(obj);
+    public ArrayList findAll(Department obj) {
+    return findAll(obj);
     }
 
     @Override
-    public void update(Classs obj) {
+    public void update(Department obj) {
         try {
-            pre = con.prepareStatement("UPDATE class SET name = ? WHERE id = ?");
-           pre.setString(2, obj.getId());
-           pre.setString(1, obj.getName());
+            pre = con.prepareStatement("UPDATE student SET name = ? WHERE id = ?");
+            pre.setString(2, obj.getId());
+           pre.setString(1, obj.getId());
            
            pre.execute();
-         JOptionPane.showMessageDialog(null, " You Have Successfully ");
+         JOptionPane.showMessageDialog(null, " You Have Successfully UpDated ");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }     
@@ -74,7 +75,6 @@ public class ClassDAO implements Iclass{
 
     @Override
     public void delete(String id) {
-
     }
     
 }

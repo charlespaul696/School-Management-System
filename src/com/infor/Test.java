@@ -24,6 +24,9 @@ public class Test {
         this.c3 = c3;
     }
 
+    public Test() {
+    }
+
     public String getStudentid() {
         return studentid;
     }

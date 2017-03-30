@@ -20,21 +20,22 @@ import javax.swing.JOptionPane;
  * @author charles
  */
  
-public  class SubjectDAO implements ISubject{
+public class RollDAO implements IRoll{
     PreparedStatement pre;
     ResultSet result;
     MySqLConnection mySql = new MySqLConnection();
     Connection con = mySql.getConnect();
-
     @Override
-    public void create(Subject obj) {
+    public void create(Roll obj) {
         try {
-            pre = con.prepareStatement("insert into sbuject values(?,?,?)");
-            pre.setString(1, obj.getId());
-            pre.setString(2, obj.getName());
-            pre.setString(3, obj.getUnit());
-            pre.executeUpdate();
-             JOptionPane.showMessageDialog(null, " You Have Successfully Registered Subject Number  "+obj.getId());
+            pre = con.prepareStatement("INSERT INTO roll VALUES(?)");
+            
+           pre.setString(1, obj.getRoll());
+           
+           
+           pre.executeUpdate();
+           
+            JOptionPane.showMessageDialog(null, " You Have Successfully  ");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -42,37 +43,38 @@ public  class SubjectDAO implements ISubject{
 
     @Override
     public void find(String id) {
-        try {
-            pre = con.prepareStatement("SELECT * FROM sbuject WHERE id = ?");
+     try {
+            pre = con.prepareStatement("SELECT * FROM signup where password = ?");
             pre.setString(1, id);
-            pre.executeUpdate();
+            pre.executeQuery();
         } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+          ex.printStackTrace();
+        }   
     }
 
     @Override
-    public ArrayList findAll(Subject obj) {
+    public ArrayList findAll(Roll obj) {
         return findAll(obj);
     }
 
     @Override
-    public void update(Subject id) {
-       try {
-            pre = con.prepareStatement("UPDATE sbuject SET id = ?, name = ?, units = ? WHERE id = ?");
-            pre.setString(3, id.getId());
-            pre.setString(1, id.getName());
-            pre.setString(2, id.getUnit());
-            pre.execute();
-             JOptionPane.showMessageDialog(null, " You Have Successfully UpDated Subject Number  "+id.getId());
+    public void update(Roll obj) {
+        try {
+            pre = con.prepareStatement("UPDATE roll SET id = ? WHERE id = ?");
+            pre.setString(2, obj.getFrname());
+            pre.setString(1, obj.getFrname());
+          
+           
+           pre.execute();
+         JOptionPane.showMessageDialog(null, " You Have Successfully ");
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }  
+        }     
     }
 
     @Override
     public void delete(String id) {
-   
+
     }
     
 }

@@ -9,17 +9,16 @@ package com.infor;
  *
  * @author charles
  */
-public class Subject {
-    private String id,name;
-    private String unit;
+public class Faculty {
+    private String id,name,deparidf;
 
-    public Subject(String id, String name, String unit) {
+    public Faculty(String id, String name, String deparidf) {
         this.id = id;
         this.name = name;
-        this.unit = unit;
+        this.deparidf = deparidf;
     }
 
-    public Subject() {
+    public Faculty() {
     }
 
     public String getId() {
@@ -38,14 +37,16 @@ public class Subject {
         this.name = name;
     }
 
-    public String getUnit() {
-        return unit;
+    public String getDeparidf() {
+        return deparidf;
     }
 
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setDeparidf(String deparidf) {
+        this.deparidf = deparidf;
     }
 
-        
+    
+
+
     
 }

@@ -9,17 +9,15 @@ package com.infor;
  *
  * @author charles
  */
-public class Subject {
+public class Department {
     private String id,name;
-    private String unit;
 
-    public Subject(String id, String name, String unit) {
+    public Department(String id, String name) {
         this.id = id;
         this.name = name;
-        this.unit = unit;
-    }
+       }
 
-    public Subject() {
+    public Department() {
     }
 
     public String getId() {
@@ -38,14 +36,6 @@ public class Subject {
         this.name = name;
     }
 
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-        
+    
     
 }

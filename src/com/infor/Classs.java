@@ -9,12 +9,15 @@ package com.infor;
  *
  * @author charles
  */
-public class Class {
+public class Classs {
    private String id,name;
 
-    public Class(String id, String name) {
+    public Classs(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Classs() {
     }
 
     public String getId() {

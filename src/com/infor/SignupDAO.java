@@ -20,19 +20,21 @@ import javax.swing.JOptionPane;
  * @author charles
  */
  
-public class ClassDAO implements Iclass{
+public class SignupDAO implements ISignup{
     PreparedStatement pre;
     ResultSet result;
     MySqLConnection mySql = new MySqLConnection();
     Connection con = mySql.getConnect();
     @Override
-    public void create(Classs obj) {
+    public void create(Signup obj) {
         try {
-            pre = con.prepareStatement("INSERT INTO class VALUES(?,?)");
+            pre = con.prepareStatement("INSERT INTO signup VALUES(?,?,?,?,?)");
             
-           pre.setString(1, obj.getId());
-           pre.setString(2, obj.getName());
-          
+           pre.setString(1, obj.getFrname());
+           pre.setString(2, obj.getLasname());
+           pre.setString(3, obj.getUsname());
+           pre.setString(4, obj.getPaword());
+           pre.setString(5, obj.getRoll());
            
            pre.executeUpdate();
            
@@ -45,7 +47,7 @@ public class ClassDAO implements Iclass{
     @Override
     public void find(String id) {
      try {
-            pre = con.prepareStatement("SELECT * FROM marksstore where id = ?");
+            pre = con.prepareStatement("SELECT * FROM signup where password = ?");
             pre.setString(1, id);
             pre.executeQuery();
         } catch (SQLException ex) {
@@ -54,16 +56,20 @@ public class ClassDAO implements Iclass{
     }
 
     @Override
-    public ArrayList findAll(Classs obj) {
+    public ArrayList findAll(Signup obj) {
         return findAll(obj);
     }
 
     @Override
-    public void update(Classs obj) {
+    public void update(Signup obj) {
         try {
-            pre = con.prepareStatement("UPDATE class SET name = ? WHERE id = ?");
-           pre.setString(2, obj.getId());
-           pre.setString(1, obj.getName());
+            pre = con.prepareStatement("UPDATE signup SET firstname = ?,lastname = ?,username = ?,password = ?,roll_id = ?  WHERE firstname = ?");
+            pre.setString(6, obj.getFrname());
+            pre.setString(1, obj.getFrname());
+           pre.setString(2, obj.getLasname());
+           pre.setString(3, obj.getUsname());
+           pre.setString(4, obj.getPaword());
+           pre.setString(5, obj.getRoll());
            
            pre.execute();
          JOptionPane.showMessageDialog(null, " You Have Successfully ");
