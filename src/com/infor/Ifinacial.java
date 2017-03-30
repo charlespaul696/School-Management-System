@@ -11,10 +11,10 @@ import java.util.ArrayList;
  *
  * @author charles
  */
-public interface Iclass {
-    public void create(Class obj);
+public interface Ifinacial {
+    public void create(Finacial obj);
     public void find(String id);
-    public ArrayList findAll(Class obj);
-    public void update(Class obj);
+    public ArrayList findAll(Finacial obj);
+    public void update(Finacial obj);
     public void delete(String id);
 }

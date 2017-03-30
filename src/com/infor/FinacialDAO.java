@@ -20,22 +20,21 @@ import javax.swing.JOptionPane;
  * @author charles
  */
  
-public class MarksDAO implements IMarks{
+public class FinacialDAO implements Ifinacial{
     PreparedStatement pre;
     ResultSet result;
     MySqLConnection mySql = new MySqLConnection();
     Connection con = mySql.getConnect();
     @Override
-    public void create(Marks obj) {
+    public void create(Finacial obj) {
         try {
-            pre = con.prepareStatement("INSERT INTO marksstore VALUES(?,?,?,?,?)");
+            pre = con.prepareStatement("INSERT INTO finacial VALUES(?,?,?,?)");
             
-           //pre.setString(1, obj.getId());
+         //  pre.setString(1, obj.getId());
            pre.setString(1, obj.getStudentid());
-           pre.setString(2, obj.getSubjectid());
-           pre.setString(3, obj.getClasid());
-           pre.setString(4, obj.getTestid());
-           pre.setString(5, obj.getExams());
+           pre.setString(2, obj.getClasid());
+           pre.setString(3, obj.getTerns());
+           pre.setString(4, obj.getAmount());
            
            pre.executeUpdate();
            
@@ -48,7 +47,7 @@ public class MarksDAO implements IMarks{
     @Override
     public void find(String id) {
      try {
-            pre = con.prepareStatement("SELECT * FROM marksstore where id = ?");
+            pre = con.prepareStatement("SELECT * FROM finacial where id = ?");
             pre.setString(1, id);
             pre.executeQuery();
         } catch (SQLException ex) {
@@ -57,23 +56,21 @@ public class MarksDAO implements IMarks{
     }
 
     @Override
-    public ArrayList findAll(Marks obj) {
-        return findAll(obj);
+    public ArrayList findAll(Finacial obj) {
+    return findAll(obj);
     }
 
     @Override
-    public void update(Marks id) {
-     try {
-            pre = con.prepareStatement("UPDATE marksstore SET Sbuject_id = ?,Class_id = ?,Tests_id = ?,exam = ? WHERE Student_id = ?");
-         // pre.setString(6, id.getId());
-           pre.setString(5, id.getStudentid());
-           pre.setString(1, id.getSubjectid());
-           pre.setString(2, id.getClasid());
-           pre.setString(3, id.getTestid());
-           pre.setString(4, id.getExams());
+    public void update(Finacial obj) {
+        try {
+            pre = con.prepareStatement("UPDATE student SET Class_id = ?,TermSection_id = ?,amount = ? WHERE Student_id = ?");
+           pre.setString(4, obj.getStudentid());
+           pre.setString(1, obj.getClasid());
+           pre.setString(2, obj.getTerns());
+           pre.setString(3, obj.getAmount());
            
            pre.execute();
-         JOptionPane.showMessageDialog(null, " You Have Successfully  "+id.getStudentid());
+         JOptionPane.showMessageDialog(null, " You Have Successfully UpDated Student Number  "+obj.getStudentid());
         } catch (SQLException ex) {
             ex.printStackTrace();
         }     

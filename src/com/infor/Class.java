@@ -10,16 +10,11 @@ package com.infor;
  * @author charles
  */
 public class Class {
-    private String id,subjectid,studentid,clasid,testid;
-    private String exams;
+   private String id,name;
 
-    public Class(String id, String subjectid, String studentid, String clasid, String testid, String exams) {
+    public Class(String id, String name) {
         this.id = id;
-        this.subjectid = subjectid;
-        this.studentid = studentid;
-        this.clasid = clasid;
-        this.testid = testid;
-        this.exams = exams;
+        this.name = name;
     }
 
     public String getId() {
@@ -30,46 +25,13 @@ public class Class {
         this.id = id;
     }
 
-    public String getSubjectid() {
-        return subjectid;
+    public String getName() {
+        return name;
     }
 
-    public void setSubjectid(String subjectid) {
-        this.subjectid = subjectid;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public String getStudentid() {
-        return studentid;
-    }
-
-    public void setStudentid(String studentid) {
-        this.studentid = studentid;
-    }
-
-    public String getClasid() {
-        return clasid;
-    }
-
-    public void setClasid(String clasid) {
-        this.clasid = clasid;
-    }
-
-    public String getTestid() {
-        return testid;
-    }
-
-    public void setTestid(String testid) {
-        this.testid = testid;
-    }
-
-    public String getExams() {
-        return exams;
-    }
-
-    public void setExams(String exams) {
-        this.exams = exams;
-    }
-
-    
+   
     
 }

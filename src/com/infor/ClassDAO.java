@@ -20,26 +20,23 @@ import javax.swing.JOptionPane;
  * @author charles
  */
  
-public class ClassDAO implements IMarks{
+public class ClassDAO implements Iclass{
     PreparedStatement pre;
     ResultSet result;
     MySqLConnection mySql = new MySqLConnection();
     Connection con = mySql.getConnect();
     @Override
-    public void create(Marks obj) {
+    public void create(Class obj) {
         try {
-            pre = con.prepareStatement("INSERT INTO marksstore VALUES(?,?,?,?,?,?)");
+            pre = con.prepareStatement("INSERT INTO class VALUES(?,?)");
             
            pre.setString(1, obj.getId());
-           pre.setString(2, obj.getStudentid());
-           pre.setString(3, obj.getSubjectid());
-           pre.setString(4, obj.getClasid());
-           pre.setString(5, obj.getTestid());
-           pre.setString(6, obj.getExams());
+           pre.setString(2, obj.getName());
+          
            
            pre.executeUpdate();
            
-            JOptionPane.showMessageDialog(null, " You Have Successfully Registered Student Number  "+obj.getStudentid());
+            JOptionPane.showMessageDialog(null, " You Have Successfully  ");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -57,18 +54,27 @@ public class ClassDAO implements IMarks{
     }
 
     @Override
-    public ArrayList findAll(Marks obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList findAll(Class obj) {
+        return findAll(obj);
     }
 
     @Override
-    public void update(Marks id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Class obj) {
+        try {
+            pre = con.prepareStatement("UPDATE student SET name = ? WHERE id = ?");
+           pre.setString(2, obj.getId());
+           pre.setString(1, obj.getName());
+           
+           pre.execute();
+         JOptionPane.showMessageDialog(null, " You Have Successfully ");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }     
     }
 
     @Override
     public void delete(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
     
 }

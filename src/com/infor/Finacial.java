@@ -9,21 +9,19 @@ package com.infor;
  *
  * @author charles
  */
-public class Marks {
-    private String id,subjectid,studentid,clasid,testid;
-    private String exams;
+public class Finacial {
+    private String id,subjectid,studentid,clasid,terns;
+    private String amount;
 
-    public Marks(String id, String subjectid, String studentid, String clasid, String testid, String exams) {
+    public Finacial(String id, String subjectid, String studentid, String terns, String amount) {
         this.id = id;
         this.subjectid = subjectid;
         this.studentid = studentid;
-        this.clasid = clasid;
-        this.testid = testid;
-        this.exams = exams;
+        this.terns = terns;
+        this.amount = amount;
     }
 
-    public Marks() {
-
+    public Finacial() {
     }
 
     public String getId() {
@@ -58,20 +56,20 @@ public class Marks {
         this.clasid = clasid;
     }
 
-    public String getTestid() {
-        return testid;
+    public String getTerns() {
+        return terns;
     }
 
-    public void setTestid(String testid) {
-        this.testid = testid;
+    public void setTerns(String terns) {
+        this.terns = terns;
     }
 
-    public String getExams() {
-        return exams;
+    public String getAmount() {
+        return amount;
     }
 
-    public void setExams(String exams) {
-        this.exams = exams;
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 
     
