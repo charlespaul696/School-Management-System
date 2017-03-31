@@ -63,6 +63,12 @@ public class MasterPage extends javax.swing.JFrame {
      */
      private PreparedStatement pre;
     private ResultSet ree;
+     private PreparedStatement pree;
+    private ResultSet reee;
+     private PreparedStatement preee;
+    private ResultSet reeee;
+     private PreparedStatement preeee;
+    private ResultSet reeeee;
     MySqLConnection my = new MySqLConnection();
      Connection con = my.getConnect();
    private DefaultTableModel model;
@@ -108,6 +114,196 @@ public class MasterPage extends javax.swing.JFrame {
     public MasterPage() {
         initComponents();
          setLocationRelativeTo(null);
+         //<editor-fold defaultstate="collapsed" desc="My Tables Invokations">
+        
+          String sq = "Select id from department";
+           try{
+          PreparedStatement   p = con.prepareStatement(sq);
+           ResultSet  r = p.executeQuery();
+          while(r.next()){
+               
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) dd.getModel();
+                 String add1 = r.getString("id");
+                 data.add(add1);
+                 model.addRow(data);
+             }
+          }catch(Exception e){
+             e.printStackTrace();
+         }
+            String sql = "Select id from student";
+         try{
+             pre = con.prepareStatement(sql);
+             ree = pre.executeQuery();
+         
+             
+             while(ree.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) upt.getModel();
+                 String add1 = ree.getString("id");
+                 data.add(add1);
+                 model.addRow(data);
+             }
+              
+             
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+         String sqll = "Select * from tests";
+         try{
+             pre = con.prepareStatement(sqll);
+             ree = pre.executeQuery();
+             
+             while(ree.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) tt.getModel();
+                 String add1 = ree.getString("id");
+                 data.add(add1);
+                 model.addRow(data);
+             }
+             
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+         String sqlll = "Select id from department";
+         try{
+             pre = con.prepareStatement(sqlll);
+             ree = pre.executeQuery();
+             
+             while(ree.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) dt.getModel();
+                 String add1 = ree.getString("id");
+                 data.add(add1);
+                 model.addRow(data);
+             }
+             
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+         String sqllll = "Select id from faculty";
+         try{
+             pre = con.prepareStatement(sqllll);
+             ree = pre.executeQuery();
+             
+             while(ree.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) ft.getModel();
+                 String add1 = ree.getString("id");
+                 data.add(add1);
+                 model.addRow(data);
+             }
+             
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+         String sqlllll = "Select id from sbuject";
+         try{
+             pre = con.prepareStatement(sqlllll);
+             ree = pre.executeQuery();
+             
+             while(ree.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) sbt.getModel();
+                 String add1 = ree.getString("id");
+                 data.add(add1);
+                 model.addRow(data);
+             }
+             
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+         
+         
+         String s = "Select * from student";
+         String subj = "Select * from sbuject";
+         String clas = "Select * from class";
+         String tts = "Select * from tests";
+         try{
+             pre = con.prepareStatement(s);
+             ree = pre.executeQuery();
+             
+             pree = con.prepareStatement(subj);
+             reee = pree.executeQuery();
+             
+             preee = con.prepareStatement(clas);
+             reeee = preee.executeQuery();
+             
+             preeee = con.prepareStatement(tts);
+             reeeee = preeee.executeQuery();
+             
+             while(ree.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) student.getModel();
+                 String add1 = ree.getString("id");
+                 data.add(add1);
+                 String add2 = ree.getString("firstName");
+                 data.add(add2);
+                 String add3 = ree.getString("lastName");
+                 data.add(add3);
+                 model.addRow(data);
+             }
+             
+              while(reee.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) subjectta.getModel();
+                 String add1 = reee.getString("id");
+                 data.add(add1);
+                
+                 model.addRow(data);
+             }
+             
+               while(reeee.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) classta.getModel();
+                 String add1 = reeee.getString("id");
+                 data.add(add1);
+                
+                 model.addRow(data);
+             }
+               
+                while(reeeee.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) testta.getModel();
+                 String add1 = reeeee.getString("id");
+                 data.add(add1);
+                
+                 model.addRow(data);
+             }
+             
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+         
+         
+          String pay = "Select id from marksstore";
+          String pa = "Select id from class";
+         try{
+             pre = con.prepareStatement(pay);
+             ree = pre.executeQuery();
+          PreparedStatement    pr = con.prepareStatement(pa);
+            ResultSet re = pr.executeQuery();
+             
+             while(ree.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) payt.getModel();
+                 String add1 = ree.getString("id");
+                 data.add(add1);
+                 model.addRow(data);
+             }
+              while(re.next()){
+                 Vector<Object> data = new Vector<>();
+                 model = (DefaultTableModel) payt.getModel();
+                 String add1 = ree.getString("id");
+                 data.add(add1);
+                 model.addRow(data);
+             }
+             
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+
+//</editor-fold>
     }
 
     /**
@@ -119,6 +315,7 @@ public class MasterPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        gg = new javax.swing.ButtonGroup();
         back = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -134,8 +331,6 @@ public class MasterPage extends javax.swing.JFrame {
         fn = new javax.swing.JTextField();
         ln = new javax.swing.JTextField();
         on = new javax.swing.JTextField();
-        gd = new javax.swing.JTextField();
-        age = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
@@ -157,6 +352,11 @@ public class MasterPage extends javax.swing.JFrame {
         table = new javax.swing.JTable();
         email = new javax.swing.JFormattedTextField();
         ph = new javax.swing.JFormattedTextField();
+        ma = new javax.swing.JRadioButton();
+        fe = new javax.swing.JCheckBox();
+        com = new javax.swing.JComboBox<>();
+        jScrollPane25 = new javax.swing.JScrollPane();
+        dd = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -170,7 +370,7 @@ public class MasterPage extends javax.swing.JFrame {
         ts = new javax.swing.JTextField();
         am = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        makclear = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -332,7 +532,7 @@ public class MasterPage extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1155, Short.MAX_VALUE)
+            .addGap(0, 1187, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,18 +581,6 @@ public class MasterPage extends javax.swing.JFrame {
         on.setForeground(new java.awt.Color(0, 0, 0));
         on.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         on.setPreferredSize(new java.awt.Dimension(200, 30));
-
-        gd.setBackground(new java.awt.Color(255, 255, 255));
-        gd.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        gd.setForeground(new java.awt.Color(0, 0, 0));
-        gd.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
-        gd.setPreferredSize(new java.awt.Dimension(200, 30));
-
-        age.setBackground(new java.awt.Color(255, 255, 255));
-        age.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        age.setForeground(new java.awt.Color(0, 0, 0));
-        age.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
-        age.setPreferredSize(new java.awt.Dimension(200, 30));
 
         jLabel34.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(0, 0, 0));
@@ -460,7 +648,7 @@ public class MasterPage extends javax.swing.JFrame {
         cancel.setBackground(new java.awt.Color(153, 153, 153));
         cancel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Delete.png"))); // NOI18N
-        cancel.setText("Exit");
+        cancel.setText("Clear Text");
         cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelActionPerformed(evt);
@@ -513,6 +701,25 @@ public class MasterPage extends javax.swing.JFrame {
         ph.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         ph.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
+        gg.add(ma);
+        ma.setText("Male");
+
+        gg.add(fe);
+        fe.setText("Female");
+
+        com.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        com.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36" }));
+
+        dd.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Departmemt id"
+            }
+        ));
+        jScrollPane25.setViewportView(dd);
+
         jLayeredPane1.setLayer(jLabel29, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel30, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel31, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -521,8 +728,6 @@ public class MasterPage extends javax.swing.JFrame {
         jLayeredPane1.setLayer(fn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ln, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(on, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(gd, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(age, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel34, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel35, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel36, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -542,72 +747,79 @@ public class MasterPage extends javax.swing.JFrame {
         jLayeredPane1.setLayer(jScrollPane22, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(email, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ph, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ma, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(fe, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(com, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jScrollPane25, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                            .addGap(46, 46, 46)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(st, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                            .addContainerGap(55, Short.MAX_VALUE)
-                            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(fn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ln, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(gd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(on, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                        .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel36))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(ad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(re, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(email)
-                                        .addComponent(ph)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                                    .addComponent(jLabel39)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(did, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(18, 18, 18)))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(regist, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
                         .addComponent(update)
-                        .addGap(65, 65, 65)
-                        .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(55, 55, 55)
+                        .addComponent(cancel))
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ln, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(on, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(ma)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(fe))
+                                    .addComponent(com, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel36))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(ad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(re, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(email)
+                                            .addComponent(ph, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(jLabel39)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(did, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(st, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane25, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(153, 153, 153))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -663,20 +875,24 @@ public class MasterPage extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel32)
-                                    .addComponent(gd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ma)
+                                    .addComponent(fe))
                                 .addGap(18, 18, 18)
-                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel33)
-                                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(com, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(36, 36, 36)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(update)
                             .addComponent(cancel)
                             .addComponent(regist, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane25, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jScrollPane21.setViewportView(jLayeredPane1);
@@ -686,9 +902,9 @@ public class MasterPage extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
-                .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 971, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 1113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -742,13 +958,13 @@ public class MasterPage extends javax.swing.JFrame {
             }
         });
 
-        jButton10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Close.png"))); // NOI18N
-        jButton10.setText("Exit");
-        jButton10.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(102, 102, 102)));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        makclear.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        makclear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Close.png"))); // NOI18N
+        makclear.setText("Clear Text");
+        makclear.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(102, 102, 102)));
+        makclear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                makclearActionPerformed(evt);
             }
         });
 
@@ -773,23 +989,24 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jLabel24)
                         .addGap(37, 37, 37)
                         .addComponent(sid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel26)
-                                .addComponent(jLabel25))
-                            .addComponent(jLabel27))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(am, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
+                            .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(makclear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
+                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel26)
+                                    .addComponent(jLabel25))
+                                .addComponent(jLabel27))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(am, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
@@ -818,7 +1035,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(submit)
-                            .addComponent(jButton10)
+                            .addComponent(makclear)
                             .addComponent(jButton11)))
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addContainerGap()
@@ -833,7 +1050,7 @@ public class MasterPage extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(348, Short.MAX_VALUE))
+                .addContainerGap(380, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1160,7 +1377,6 @@ public class MasterPage extends javax.swing.JFrame {
                                 .addComponent(exam, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(3, 3, 3)))
                         .addGap(1, 1, 1)))
-                .addGap(18, 18, 18)
                 .addComponent(cance)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1227,7 +1443,7 @@ public class MasterPage extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1352,7 +1568,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(326, Short.MAX_VALUE))
+                .addContainerGap(420, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1486,7 +1702,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addContainerGap(364, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1504,7 +1720,7 @@ public class MasterPage extends javax.swing.JFrame {
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1155, Short.MAX_VALUE)
+            .addGap(0, 1187, Short.MAX_VALUE)
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1583,7 +1799,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton9)
                         .addGap(29, 29, 29)
                         .addComponent(StuTable, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1648,7 +1864,7 @@ public class MasterPage extends javax.swing.JFrame {
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addContainerGap(373, Short.MAX_VALUE))
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1715,7 +1931,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton4)
                         .addGap(37, 37, 37)
                         .addComponent(classview, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addContainerGap(406, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1783,7 +1999,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton3)
                         .addGap(72, 72, 72)
                         .addComponent(classview1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addContainerGap(406, Short.MAX_VALUE))
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1851,7 +2067,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton14)
                         .addGap(40, 40, 40)
                         .addComponent(Sectionview, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addContainerGap(406, Short.MAX_VALUE))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1919,7 +2135,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton16)
                         .addGap(18, 18, 18)
                         .addComponent(facultyview, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addContainerGap(406, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1985,7 +2201,7 @@ public class MasterPage extends javax.swing.JFrame {
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addContainerGap(356, Short.MAX_VALUE))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2055,7 +2271,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton18)
                         .addGap(33, 33, 33)
                         .addComponent(SubView, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2180,7 +2396,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(364, Short.MAX_VALUE))
+                .addContainerGap(396, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2221,7 +2437,7 @@ public class MasterPage extends javax.swing.JFrame {
             .addGroup(jPanel25Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 844, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(313, Short.MAX_VALUE))
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2280,10 +2496,10 @@ public class MasterPage extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(544, 544, 544)
                 .addComponent(back)
-                .addContainerGap(617, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2329,7 +2545,18 @@ public class MasterPage extends javax.swing.JFrame {
     }//GEN-LAST:event_clMouseClicked
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        setVisible(false);
+         id.setText("");
+       fn.setText("");
+         ln.setText("");
+         on.setText("");
+       // (ma.isSelected() ? "Male" : "Fmale");
+         com.setSelectedItem("");
+        st.setText("");
+         re.setText("");
+        ad.setText("");
+         ph.setText("");
+        email.setText("");
+        did.setText("");
     }//GEN-LAST:event_cancelActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
@@ -2337,8 +2564,8 @@ public class MasterPage extends javax.swing.JFrame {
         String fname = fn.getText();
         String lname = ln.getText();
         String oname = on.getText();
-        String gender = gd.getText();
-        String ag = age.getText();
+        String gender = (ma.isSelected() ? "Male" : "Fmale");
+        String ag = com.getSelectedItem().toString();
         String State = st.getText();
         String relig = re.getText();
         String address = ad.getText();
@@ -2600,50 +2827,53 @@ public class MasterPage extends javax.swing.JFrame {
     }//GEN-LAST:event_FinancialviewActionPerformed
 
     private void registActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registActionPerformed
-           String idnumber = "student" + id.getText();
-        String fname = fn.getText();
-        String lname = ln.getText();
-        String oname = on.getText();
-         String gender = gd.getText();
-        String ag =  age.getText();
-        String State = st.getText();
-        String relig = re.getText();
-        String address = ad.getText();
-        String phone = ph.getText();
-        String em = email.getText();
-        String depart = did.getText();
-
-        getstudent.setId(idnumber);
-        getstudent.setFname(fname);
-        getstudent.setLname(lname);
-        getstudent.setOname(oname);
-        getstudent.setGender(gender);
-        getstudent.setAge(ag);
-        getstudent.setState(State);
-        getstudent.setReligion(relig);
-        getstudent.setAddress(address);
-        getstudent.setPhone(phone);
-        getstudent.setEmail(em);
-        getstudent.setDepartmentid(depart);
-
-       studentcreate.create(getstudent);
-
-                 Vector<Object> data = new Vector<Object>();
-                 model = (DefaultTableModel) table.getModel();
-                 data.add("student"+id.getText());
-                data.add( fn.getText());
-                data.add( ln.getText());
-                data.add( on.getText());
-                data.add(gender);
-                data.add( ag);
-                data.add(st.getText());
-                data.add( re.getText());
-                data.add( ad.getText());
-                data.add( ph.getText());
-                data.add( email.getText());
-                data.add( did.getText());
-                model.addRow(data);
-
+        try {
+            String idnumber = "student" + id.getText();
+            String fname = fn.getText();
+            String lname = ln.getText();
+            String oname = on.getText();
+            String gender = (ma.isSelected() ? "Male" : "Fmale");
+            String ag = com.getSelectedItem().toString();
+            String State = st.getText();
+            String relig = re.getText();
+            String address = ad.getText();
+            String phone = ph.getText();
+            String em = email.getText();
+            String depart = did.getText();
+            
+            getstudent.setId(idnumber);
+            getstudent.setFname(fname);
+            getstudent.setLname(lname);
+            getstudent.setOname(oname);
+            getstudent.setGender(gender);
+            getstudent.setAge(ag);
+            getstudent.setState(State);
+            getstudent.setReligion(relig);
+            getstudent.setAddress(address);
+            getstudent.setPhone(phone);
+            getstudent.setEmail(em);
+            getstudent.setDepartmentid(depart);
+            
+            studentcreate.create(getstudent);
+            
+            Vector<Object> data = new Vector<Object>();
+            model = (DefaultTableModel) table.getModel();
+            data.add("student" + id.getText());
+            data.add(fn.getText());
+            data.add(ln.getText());
+            data.add(on.getText());
+            data.add(gender);
+            data.add(ag);
+            data.add(st.getText());
+            data.add(re.getText());
+            data.add(ad.getText());
+            data.add(ph.getText());
+            data.add(email.getText());
+            data.add(did.getText());
+            model.addRow(data);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error Massage "+e.getMessage());
+        }
     }//GEN-LAST:event_registActionPerformed
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
@@ -2678,9 +2908,12 @@ public class MasterPage extends javax.swing.JFrame {
        finacialcreate.update(getfinacial);
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        setVisible(false);
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void makclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makclearActionPerformed
+       sid.setText("");
+        cid.setText("");
+        ts.setText("");
+        am.setText("");
+    }//GEN-LAST:event_makclearActionPerformed
 
     private void okdepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okdepartmentActionPerformed
        String departmentid = depart.getText();
@@ -3019,7 +3252,6 @@ public class MasterPage extends javax.swing.JFrame {
     private javax.swing.JTable TableSubject;
     private javax.swing.JTable Tabledepartment;
     private javax.swing.JTextField ad;
-    private javax.swing.JTextField age;
     private javax.swing.JTextField am;
     private javax.swing.JButton back;
     private javax.swing.JTextField c1;
@@ -3038,6 +3270,8 @@ public class MasterPage extends javax.swing.JFrame {
     private javax.swing.JButton clear;
     private javax.swing.JTextField clid;
     private javax.swing.JButton close;
+    private javax.swing.JComboBox<String> com;
+    private javax.swing.JTable dd;
     private javax.swing.JTextField deid;
     private javax.swing.JTextField depart;
     private javax.swing.JTextField did;
@@ -3048,14 +3282,14 @@ public class MasterPage extends javax.swing.JFrame {
     private javax.swing.JButton facultyApply;
     private javax.swing.JButton facultyview;
     private javax.swing.JTextField fdeparid;
+    private javax.swing.JCheckBox fe;
     private javax.swing.JTextField fid;
     private javax.swing.JTextField fn;
     private javax.swing.JTextField fname;
     private javax.swing.JTable ft;
-    private javax.swing.JTextField gd;
+    private javax.swing.ButtonGroup gg;
     private javax.swing.JMenuItem help;
     private javax.swing.JTextField id;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -3149,6 +3383,7 @@ public class MasterPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane24;
+    private javax.swing.JScrollPane jScrollPane25;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -3160,6 +3395,8 @@ public class MasterPage extends javax.swing.JFrame {
     private javax.swing.JTable jTable;
     private javax.swing.JTextField ln;
     private javax.swing.JMenuItem logoutf;
+    private javax.swing.JRadioButton ma;
+    private javax.swing.JButton makclear;
     private javax.swing.JButton okdepartment;
     private javax.swing.JTextField on;
     private javax.swing.JTable payt;

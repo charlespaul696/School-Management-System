@@ -46,7 +46,8 @@ public class Studentimp implements Istudent{
            pre.executeUpdate();
          JOptionPane.showMessageDialog(null, " You Have Successfully Registered Student Number  "+obj.getId());
         } catch (SQLException ex) {
-            ex.printStackTrace();
+//            ex.printStackTrace();
+               JOptionPane.showMessageDialog(null, "Error Massage " + ex.getMessage());
         }
       
     }
@@ -89,6 +90,7 @@ public class Studentimp implements Istudent{
          JOptionPane.showMessageDialog(null, " You Have Successfully UpDated Student Number  "+obj.getId());
         } catch (SQLException ex) {
             ex.printStackTrace();
+             JOptionPane.showMessageDialog(null, "Error Massage " + ex.getMessage());
         }   
     }
 

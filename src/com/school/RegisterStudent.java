@@ -18,6 +18,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonModel;
+import javax.swing.JOptionPane;
 import javax.swing.OverlayLayout;
 import javax.swing.table.DefaultTableModel;
 
@@ -222,7 +223,7 @@ public class RegisterStudent extends javax.swing.JFrame {
         cancel.setBackground(new java.awt.Color(102, 102, 102));
         cancel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Close.png"))); // NOI18N
-        cancel.setText("Exit");
+        cancel.setText("Clear Text");
         cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelActionPerformed(evt);
@@ -293,7 +294,7 @@ public class RegisterStudent extends javax.swing.JFrame {
                         .addGap(299, 299, 299)
                         .addComponent(register)
                         .addGap(47, 47, 47)
-                        .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -442,55 +443,69 @@ public class RegisterStudent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        setVisible(false);
+        id.setText("");
+        fn.setText("");
+        ln.setText("");
+        on.setText("");
+        //(male.isSelected() ? "Male" : "Fmale");
+        com.setSelectedItem("");
+        st.setText("");
+        re.setText("");
+        ad.setText("");
+        ph.setText("");
+        email.setText("");
+        did.setText("");
     }//GEN-LAST:event_cancelActionPerformed
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
        
-        String idnumber = "student" + id.getText();
-        String fname = fn.getText();
-        String lname = ln.getText();
-        String oname = on.getText();
-       String gender = (male.isSelected() ? "Male" : "Fmale");
-        String ag = com.getSelectedItem().toString();
-        String State = st.getText();
-        String relig = re.getText();
-        String address = ad.getText();
-        String phone = ph.getText();
-        String em = email.getText();
-        String depart = did.getText();
-
-        get.setId(idnumber);
-        get.setFname(fname);
-        get.setLname(lname);
-        get.setOname(oname);
-        get.setGender(gender);
-        get.setAge(ag);
-        get.setState(State);
-        get.setReligion(relig);
-        get.setAddress(address);
-        get.setPhone(phone);
-        get.setEmail(em);
-        get.setDepartmentid(depart);
-
-       //output.create(get);
-
-                 Vector<Object> data = new Vector<Object>();
-                 Model = (DefaultTableModel) table.getModel();
-                 data.add("student"+id.getText());
-                data.add( fn.getText());
-                data.add( ln.getText());
-                data.add( on.getText());
-                data.add(gender);
-                data.add( ag);
-                data.add(st.getText());
-                data.add( re.getText());
-                data.add( ad.getText());
-                data.add( ph.getText());
-                data.add( email.getText());
-                data.add( did.getText());
-                Model.addRow(data);
-
+        try {
+            String idnumber = "student" + id.getText();
+            String fname = fn.getText();
+            String lname = ln.getText();
+            String oname = on.getText();
+            String gender = (male.isSelected() ? "Male" : "Fmale");
+            String ag = com.getSelectedItem().toString();
+            String State = st.getText();
+            String relig = re.getText();
+            String address = ad.getText();
+            String phone = ph.getText();
+            String em = email.getText();
+            String depart = did.getText();
+            
+            get.setId(idnumber);
+            get.setFname(fname);
+            get.setLname(lname);
+            get.setOname(oname);
+            get.setGender(gender);
+            get.setAge(ag);
+            get.setState(State);
+            get.setReligion(relig);
+            get.setAddress(address);
+            get.setPhone(phone);
+            get.setEmail(em);
+            get.setDepartmentid(depart);
+            
+            output.create(get);
+            
+            Vector<Object> data = new Vector<Object>();
+            Model = (DefaultTableModel) table.getModel();
+            data.add("student" + id.getText());
+            data.add(fn.getText());
+            data.add(ln.getText());
+            data.add(on.getText());
+            data.add(gender);
+            data.add(ag);
+            data.add(st.getText());
+            data.add(re.getText());
+            data.add(ad.getText());
+            data.add(ph.getText());
+            data.add(email.getText());
+            data.add(did.getText());
+            Model.addRow(data);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error Massage  "+e.getMessage());
+        }
         
     }//GEN-LAST:event_registerActionPerformed
 

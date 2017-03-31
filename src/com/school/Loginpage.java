@@ -267,7 +267,7 @@ public class Loginpage extends javax.swing.JFrame {
             master.setVisible(true);
             JOptionPane.showMessageDialog(null, " THIS PAGE IS UNDER CONSTRUCTION ...");
             
-        }else if(!un.matches(add2)&& !pw.matches(add3) || !un.matches(add4)&& !pw.matches(add5)){
+        } if(!un.matches(add2)&& !pw.matches(add3) || !un.matches(add4)&& !pw.matches(add5)){
             JOptionPane.showMessageDialog(null, "You have entered a wrong password or username....");
         }
          }catch(Exception e){

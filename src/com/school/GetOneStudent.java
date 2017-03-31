@@ -97,7 +97,6 @@ public class GetOneStudent extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         getone = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1092, 500));
         setResizable(false);
 

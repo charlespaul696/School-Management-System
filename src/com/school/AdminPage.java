@@ -41,7 +41,7 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Payment = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -169,15 +169,20 @@ public class AdminPage extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 68, 721, 24);
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/pay.jpg"))); // NOI18N
-        jButton1.setText("Mark Payment");
-        jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(204, 204, 255)));
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jButton1);
-        jButton1.setBounds(330, 380, 150, 160);
+        Payment.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        Payment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/pay.jpg"))); // NOI18N
+        Payment.setText("Mark Payment");
+        Payment.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(204, 204, 255)));
+        Payment.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Payment.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        Payment.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Payment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PaymentActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Payment);
+        Payment.setBounds(330, 380, 150, 160);
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
         jLabel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Admin page Activity", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 18))); // NOI18N
@@ -266,6 +271,10 @@ public class AdminPage extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exActionPerformed
 
+    private void PaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaymentActionPerformed
+       MakePayment.main(new String[] {});
+    }//GEN-LAST:event_PaymentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -302,12 +311,12 @@ public class AdminPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Payment;
     private javax.swing.JButton back;
     private javax.swing.JMenu ex;
     private javax.swing.JButton getAllStudent;
     private javax.swing.JButton getoneStudent;
     private javax.swing.JMenuItem hel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
