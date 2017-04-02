@@ -9,6 +9,7 @@ import com.infor.IMarks;
 import com.infor.Marks;
 import com.infor.MarksDAO;
 import connect.MySqLConnection;
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -107,13 +108,11 @@ public class RegisterScore extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        ID = new javax.swing.JTextField();
         sub = new javax.swing.JTextField();
         stu = new javax.swing.JTextField();
         Cla = new javax.swing.JTextField();
@@ -132,28 +131,25 @@ public class RegisterScore extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
+        setResizable(false);
+
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Marks Registration", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Old English Text MT", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setText("Id : ");
-
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("Subject Id :");
+        jLabel4.setText("Student Id :");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("Student Id :");
+        jLabel5.setText("Subject");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setText("Class id : ");
+        jLabel6.setText("Class  : ");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setText("Tests Id : ");
+        jLabel7.setText("Tests  : ");
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setText("Exam Score : ");
-
-        ID.setPreferredSize(new java.awt.Dimension(200, 30));
 
         sub.setPreferredSize(new java.awt.Dimension(200, 30));
 
@@ -196,6 +192,11 @@ public class RegisterScore extends javax.swing.JFrame {
                 "Student id", "FirstName", "LastName"
             }
         ));
+        studentt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                studenttMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(studentt);
 
         classt.setModel(new javax.swing.table.DefaultTableModel(
@@ -206,6 +207,11 @@ public class RegisterScore extends javax.swing.JFrame {
                 "Class id"
             }
         ));
+        classt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                classtMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(classt);
 
         testt.setModel(new javax.swing.table.DefaultTableModel(
@@ -216,6 +222,11 @@ public class RegisterScore extends javax.swing.JFrame {
                 "Test id", "Student id"
             }
         ));
+        testt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                testtMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(testt);
 
         Subjectt.setModel(new javax.swing.table.DefaultTableModel(
@@ -226,6 +237,11 @@ public class RegisterScore extends javax.swing.JFrame {
                 "Subject id"
             }
         ));
+        Subjectt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SubjecttMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(Subjectt);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -243,11 +259,11 @@ public class RegisterScore extends javax.swing.JFrame {
                         .addGap(167, 167, 167)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -258,7 +274,6 @@ public class RegisterScore extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(stu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Cla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -269,19 +284,15 @@ public class RegisterScore extends javax.swing.JFrame {
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 154, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(sub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -291,7 +302,7 @@ public class RegisterScore extends javax.swing.JFrame {
                             .addComponent(stu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -363,22 +374,101 @@ public class RegisterScore extends javax.swing.JFrame {
     }//GEN-LAST:event_examsActionPerformed
 
     private void regsterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regsterActionPerformed
-   
-    Marks output = new Marks(ID.getText(), stu.getText(), sub.getText(), Cla.getText(), tes.getText(), exams.getText());
-      new MarksDAO().create(output);
-      
-        ID.setText("");
-        stu.setText("");
-        sub.setText("");
-        Cla.setText("");
-        tes.setText("");
-        exams.setText("");
-        
+        try {
+            
+            Marks output = new Marks(null, stu.getText(), sub.getText(), Cla.getText(), tes.getText(), exams.getText());
+            if (!stu.getText().isEmpty() && !sub.getText().isEmpty() && !Cla.getText().isEmpty() && !tes.getText().isEmpty() && !exams.getText().isEmpty()) {
+                new MarksDAO().create(output);
+            } else if (stu.getText().isEmpty() || sub.getText().isEmpty() || Cla.getText().isEmpty() || tes.getText().isEmpty() || exams.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "            Error Massage '---**---'\n"
+                        + "Sorry You must fill up the fields before you register...");
+            }
+        } catch (HeadlessException headlessException) {
+            JOptionPane.showMessageDialog(null, "            Error Massage '---**---'\n"
+                        + "Sorry You must fill up the fields before you register...");
+        }
     }//GEN-LAST:event_regsterActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-       setVisible(false);
+      stu.setText("");
+      sub.setText("");
+      Cla.setText("");
+      tes.setText("");
+      exams.setText("");
     }//GEN-LAST:event_resetActionPerformed
+
+    private void SubjecttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubjecttMouseClicked
+      String sql = "Select id from sbuject";
+        try{
+          PreparedStatement  pre = con.prepareStatement(sql);
+           ResultSet ree = pre.executeQuery();
+            
+                while(ree.next()){
+                
+                String add1 = ree.getString("id");
+                stu.setText(add1);
+                
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_SubjecttMouseClicked
+
+    private void studenttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studenttMouseClicked
+        String sql = "Select id from student";
+        try{
+          PreparedStatement  pre = con.prepareStatement(sql);
+           ResultSet ree = pre.executeQuery();
+            
+                while(ree.next()){
+                
+                String add1 = ree.getString("id");
+                sub.setText(add1);
+                
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_studenttMouseClicked
+
+    private void classtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classtMouseClicked
+      String sql = "Select id from class";
+        try{
+          PreparedStatement  pre = con.prepareStatement(sql);
+           ResultSet ree = pre.executeQuery();
+            
+                while(ree.next()){
+                
+                String add1 = ree.getString("id");
+                Cla.setText(add1);
+                
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_classtMouseClicked
+
+    private void testtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_testtMouseClicked
+       String sql = "Select id from tests";
+        try{
+          PreparedStatement  pre = con.prepareStatement(sql);
+           ResultSet ree = pre.executeQuery();
+            
+                while(ree.next()){
+                
+                String add1 = ree.getString("id");
+                tes.setText(add1);
+                
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_testtMouseClicked
 
     /**
      * @param args the command line arguments
@@ -417,11 +507,9 @@ public class RegisterScore extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Cla;
-    private javax.swing.JTextField ID;
     private javax.swing.JTable Subjectt;
     private javax.swing.JTable classt;
     private javax.swing.JTextField exams;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

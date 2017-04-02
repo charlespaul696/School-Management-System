@@ -8,6 +8,14 @@ package com.school;
 import com.infor.Finacial;
 import com.infor.FinacialDAO;
 import com.infor.Ifinacial;
+import connect.MySqLConnection;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,8 +28,39 @@ public class MakePayment extends javax.swing.JFrame {
      */
     Ifinacial finacialcreate = new FinacialDAO();
     Finacial getfinacial = new Finacial();
+     MySqLConnection my = new MySqLConnection();
+     Connection con = my.getConnect();
+      private DefaultTableModel model;
     public MakePayment() {
         initComponents();
+        setLocationRelativeTo(null);
+         String sql = "Select id from student";
+         String sqll = "Select id from class";
+        try{
+            PreparedStatement  pre = con.prepareStatement(sql);
+            ResultSet ree = pre.executeQuery();
+            
+            PreparedStatement  pree = con.prepareStatement(sqll);
+            ResultSet reee = pree.executeQuery();
+            
+                while(ree.next()){
+                     Vector<Object> data = new Vector<>();
+                model = (DefaultTableModel) payt.getModel();
+                String add1 = ree.getString("id");
+                data.add(add1);
+                model.addRow(data);
+                }
+                 while(reee.next()){
+                     Vector<Object> dat = new Vector<>();
+                model = (DefaultTableModel) payt1.getModel();
+                String add1 = reee.getString("id");
+                dat.add(add1);
+                model.addRow(dat);
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -46,8 +85,13 @@ public class MakePayment extends javax.swing.JFrame {
         am = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
         makclear = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        payt1 = new javax.swing.JTable();
 
+        setResizable(false);
+
+        jPanel15.setBackground(new java.awt.Color(204, 204, 204));
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Make Payment", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 18))); // NOI18N
 
         payt.setModel(new javax.swing.table.DefaultTableModel(
@@ -55,16 +99,21 @@ public class MakePayment extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Student Id", "Class Id"
+                "Student Id"
             }
         ));
+        payt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                paytMouseClicked(evt);
+            }
+        });
         jScrollPane9.setViewportView(payt);
 
         jLabel24.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel24.setText("Student ID :");
 
         jLabel25.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel25.setText("Class ID :");
+        jLabel25.setText("Class  :");
 
         jLabel26.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel26.setText("TermSection :");
@@ -100,15 +149,30 @@ public class MakePayment extends javax.swing.JFrame {
             }
         });
 
-        jButton11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Apply.png"))); // NOI18N
-        jButton11.setText("Update");
-        jButton11.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(102, 102, 102)));
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        update.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Apply.png"))); // NOI18N
+        update.setText("Update");
+        update.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(102, 102, 102)));
+        update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                updateActionPerformed(evt);
             }
         });
+
+        payt1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Class Id"
+            }
+        ));
+        payt1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                payt1MouseClicked(evt);
+            }
+        });
+        jScrollPane10.setViewportView(payt1);
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -125,7 +189,7 @@ public class MakePayment extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
                             .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(makclear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
@@ -139,9 +203,14 @@ public class MakePayment extends javax.swing.JFrame {
                                 .addComponent(am, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(cid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(ts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
+            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                    .addContainerGap(423, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(192, 192, 192)))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,11 +237,16 @@ public class MakePayment extends javax.swing.JFrame {
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(submit)
                             .addComponent(makclear)
-                            .addComponent(jButton11)))
+                            .addComponent(update)))
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(16, 16, 16)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel15Layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(27, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -196,17 +270,26 @@ public class MakePayment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        String idnumber = sid.getText();
-        String fname = cid.getText();
-        String lname = ts.getText();
-        String oname = am.getText();
-
-        getfinacial.setStudentid(idnumber);
-        getfinacial.setClasid(fname);
-        getfinacial.setTerns(lname);
-        getfinacial.setAmount(oname);
-
-        finacialcreate.create(getfinacial);
+        try {
+            String idnumber = sid.getText();
+            String fname = cid.getText();
+            String lname = ts.getText();
+            String oname = am.getText();
+            
+            getfinacial.setStudentid(idnumber);
+            getfinacial.setClasid(fname);
+            getfinacial.setTerns(lname);
+            getfinacial.setAmount(oname);
+            
+            if (!sid.getText().isEmpty() && !cid.getText().isEmpty() && !ts.getText().isEmpty() && !am.getText().isEmpty()) {
+                finacialcreate.create(getfinacial);
+            } else if (sid.getText().isEmpty() || cid.getText().isEmpty() || ts.getText().isEmpty() || am.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please you must fill in the spaces be Submitting");
+            }
+        } catch (HeadlessException headlessException) {
+            JOptionPane.showMessageDialog(null, "  Sorry you have entered an invalid format...\n"
+                    + "Please check the values entered and try again....");
+        }
     }//GEN-LAST:event_submitActionPerformed
 
     private void makclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makclearActionPerformed
@@ -216,19 +299,55 @@ public class MakePayment extends javax.swing.JFrame {
         am.setText("");
     }//GEN-LAST:event_makclearActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        String idnumber = sid.getText();
-        String fname = cid.getText();
-        String lname = ts.getText();
-        String oname = am.getText();
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        try {
+            String idnumber = sid.getText();
+            String fname = cid.getText();
+            String lname = ts.getText();
+            String oname = am.getText();
+            
+            getfinacial.setStudentid(idnumber);
+            getfinacial.setClasid(fname);
+            getfinacial.setTerns(lname);
+            getfinacial.setAmount(oname);
+            if (!sid.getText().isEmpty() && !cid.getText().isEmpty() && !ts.getText().isEmpty() && !am.getText().isEmpty()) {
+                finacialcreate.update(getfinacial);
+            } else if (sid.getText().isEmpty() || cid.getText().isEmpty() || ts.getText().isEmpty() || am.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please you must fill in the spaces be Submitting");
+            }
+        } catch (HeadlessException headlessException) {
+            JOptionPane.showMessageDialog(null, "  Sorry you have entered an invalid format...\n"
+                    + "Please check the values entered and try again....");
+        }
+    }//GEN-LAST:event_updateActionPerformed
 
-        getfinacial.setStudentid(idnumber);
-        getfinacial.setClasid(fname);
-        getfinacial.setTerns(lname);
-        getfinacial.setAmount(oname);
+    private void paytMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytMouseClicked
+       String sql = "Select id from student";
+       String sqll = "Select id from class";
+        try{
+          PreparedStatement  pre = con.prepareStatement(sql);
+          PreparedStatement  pree = con.prepareStatement(sqll);
+           ResultSet ree = pre.executeQuery();
+           ResultSet reee = pree.executeQuery();
+                while(ree.next()){
+                
+                String add1 = ree.getString("id");
+                sid.setText(add1);
+            }
+            
+                 while(reee.next()){
+                
+                String add1 = reee.getString("id");
+                cid.setText(add1);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_paytMouseClicked
 
-        finacialcreate.update(getfinacial);
-    }//GEN-LAST:event_jButton11ActionPerformed
+    private void payt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_payt1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_payt1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -268,17 +387,19 @@ public class MakePayment extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField am;
     private javax.swing.JTextField cid;
-    private javax.swing.JButton jButton11;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton makclear;
     private javax.swing.JTable payt;
+    private javax.swing.JTable payt1;
     private javax.swing.JTextField sid;
     private javax.swing.JButton submit;
     private javax.swing.JTextField ts;
+    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }

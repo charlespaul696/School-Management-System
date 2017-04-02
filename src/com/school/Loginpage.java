@@ -49,7 +49,6 @@ public class Loginpage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -66,24 +65,21 @@ public class Loginpage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(250, 60, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(750, 640));
+        setMinimumSize(new java.awt.Dimension(650, 550));
+        setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);
         getContentPane().setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/school/schoolimage/school.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 750, 130);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 255), new java.awt.Color(153, 153, 255)));
         jPanel1.setForeground(new java.awt.Color(51, 51, 51));
 
         jLabel2.setFont(new java.awt.Font("DialogInput", 3, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("Enter UserName : ");
 
         jLabel3.setFont(new java.awt.Font("DialogInput", 3, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Enter Password : ");
 
         uname.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -95,26 +91,29 @@ public class Loginpage extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 255));
         jLabel4.setFont(new java.awt.Font("Giddyup Std", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Welcome To Peaceman School Management System");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Please Make Sure That You Enter Your Collect ");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("UserName and Password to login into the System");
 
         blogin.setBackground(new java.awt.Color(51, 51, 51));
         blogin.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        blogin.setForeground(new java.awt.Color(255, 255, 255));
+        blogin.setForeground(new java.awt.Color(204, 204, 204));
         blogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Unlock.png"))); // NOI18N
         blogin.setText("Login");
         blogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bloginMouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 bloginMousePressed(evt);
             }
@@ -124,10 +123,15 @@ public class Loginpage extends javax.swing.JFrame {
                 bloginActionPerformed(evt);
             }
         });
+        blogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bloginKeyPressed(evt);
+            }
+        });
 
         breset.setBackground(new java.awt.Color(51, 51, 51));
         breset.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        breset.setForeground(new java.awt.Color(255, 255, 255));
+        breset.setForeground(new java.awt.Color(204, 204, 204));
         breset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Sync.png"))); // NOI18N
         breset.setText("Reset");
         breset.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +142,7 @@ public class Loginpage extends javax.swing.JFrame {
 
         bcancel.setBackground(new java.awt.Color(51, 51, 51));
         bcancel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        bcancel.setForeground(new java.awt.Color(255, 255, 255));
+        bcancel.setForeground(new java.awt.Color(204, 204, 204));
         bcancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Bad mark.png"))); // NOI18N
         bcancel.setText("Exit");
         bcancel.addActionListener(new java.awt.event.ActionListener() {
@@ -206,11 +210,11 @@ public class Loginpage extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(160, 230, 460, 310);
+        jPanel1.setBounds(110, 170, 460, 310);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/school/schoolimage/building.jpg"))); // NOI18N
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(-80, 130, 830, 510);
+        jLabel7.setBounds(-130, -80, 860, 760);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -225,7 +229,115 @@ public class Loginpage extends javax.swing.JFrame {
     }//GEN-LAST:event_bresetActionPerformed
 
     private void bloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloginActionPerformed
-     String sql = "Select password,username from Signup where roll_id = 'admin'";
+//     String sql = "Select password,username from Signup where roll_id = 'admin'";
+//     
+//        try{
+//            pre = con.prepareStatement(sql);
+//          ree = pre.executeQuery();
+//
+//            while(ree.next()){
+//             
+//                add2 = ree.getString("username");
+//                
+//                add3 = ree.getString("password");
+//                
+//            }
+//
+//        String sqll = "Select password,username from Signup where roll_id = 'principal1'";
+//     
+//        
+//            pree = con.prepareStatement(sqll);
+//          reee = pree.executeQuery();
+//
+//            while(reee.next()){
+//             
+//                add4 = reee.getString("username");
+//                
+//                add5 = reee.getString("password");
+//                
+//            }
+//        String un = uname.getText();
+//        String pw = pword.getText();
+//        AdminPage obj = new AdminPage();
+//        if(un.matches(add2)&& pw.matches(add3)){
+//          uname.setText("");
+//          pword.setText("");
+//
+//            obj.setVisible(true);
+//            setVisible(false);
+//        }
+//       else if(un.matches(add4)&& pw.matches(add5)){
+//            MasterPage master = new MasterPage();
+//            master.setVisible(true);
+//          //  JOptionPane.showMessageDialog(null, " THIS PAGE IS UNDER CONSTRUCTION ...");
+//            
+//        } if(!un.matches(add2)&& !pw.matches(add3) || !un.matches(add4)&& !pw.matches(add5)){
+//            JOptionPane.showMessageDialog(null, "You have entered a wrong password or username....");
+//            
+//        }
+//         }catch(Exception e){
+//
+//        }
+    }//GEN-LAST:event_bloginActionPerformed
+
+    private void bloginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bloginMousePressed
+       
+    }//GEN-LAST:event_bloginMousePressed
+
+    private void bloginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bloginKeyPressed
+//         String sql = "Select password,username from Signup where roll_id = 'admin'";
+//     
+//        try{
+//            pre = con.prepareStatement(sql);
+//          ree = pre.executeQuery();
+//
+//            while(ree.next()){
+//             
+//                add2 = ree.getString("username");
+//                
+//                add3 = ree.getString("password");
+//                
+//            }
+//
+//        String sqll = "Select password,username from Signup where roll_id = 'principal1'";
+//     
+//        
+//            pree = con.prepareStatement(sqll);
+//          reee = pree.executeQuery();
+//
+//            while(reee.next()){
+//             
+//                add4 = reee.getString("username");
+//                
+//                add5 = reee.getString("password");
+//                
+//            }
+//        String un = uname.getText();
+//        String pw = pword.getText();
+//        AdminPage obj = new AdminPage();
+//        if(un.matches(add2)&& pw.matches(add3)){
+//          uname.setText("");
+//          pword.setText("");
+//
+//            obj.setVisible(true);
+//            setVisible(false);
+//        }
+//       else if(un.matches(add4)&& pw.matches(add5)){
+//            MasterPage master = new MasterPage();
+//            master.setVisible(true);
+//          //  JOptionPane.showMessageDialog(null, " THIS PAGE IS UNDER CONSTRUCTION ...");
+//            
+//        } if(!un.matches(add2)&& !pw.matches(add3) || !un.matches(add4)&& !pw.matches(add5)){
+//            JOptionPane.showMessageDialog(null, "You have entered a wrong password or username....");
+//            
+//        }
+//         }catch(Exception e){
+//
+//        }
+    }//GEN-LAST:event_bloginKeyPressed
+
+    private void bloginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bloginMouseEntered
+           String sql = "Select password,username from Signup where roll_id = 'admin'";
      
         try{
             pre = con.prepareStatement(sql);
@@ -265,19 +377,16 @@ public class Loginpage extends javax.swing.JFrame {
        else if(un.matches(add4)&& pw.matches(add5)){
             MasterPage master = new MasterPage();
             master.setVisible(true);
-            JOptionPane.showMessageDialog(null, " THIS PAGE IS UNDER CONSTRUCTION ...");
+          //  JOptionPane.showMessageDialog(null, " THIS PAGE IS UNDER CONSTRUCTION ...");
             
         } if(!un.matches(add2)&& !pw.matches(add3) || !un.matches(add4)&& !pw.matches(add5)){
             JOptionPane.showMessageDialog(null, "You have entered a wrong password or username....");
+            
         }
          }catch(Exception e){
 
         }
-    }//GEN-LAST:event_bloginActionPerformed
-
-    private void bloginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bloginMousePressed
-       
-    }//GEN-LAST:event_bloginMousePressed
+    }//GEN-LAST:event_bloginMouseEntered
 
     /**
      * @param args the command line arguments
@@ -318,7 +427,6 @@ public class Loginpage extends javax.swing.JFrame {
     private javax.swing.JButton bcancel;
     private javax.swing.JButton blogin;
     private javax.swing.JButton breset;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

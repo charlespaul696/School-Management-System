@@ -49,10 +49,10 @@ public class AdminPage extends javax.swing.JFrame {
         lo = new javax.swing.JMenuItem();
         ex = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(300, 50, 0, 0));
         setMinimumSize(new java.awt.Dimension(830, 700));
         setPreferredSize(new java.awt.Dimension(750, 630));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         registerStudent.setBackground(new java.awt.Color(204, 204, 255));
@@ -170,8 +170,8 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel3.setBounds(0, 68, 721, 24);
 
         Payment.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        Payment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/pay.jpg"))); // NOI18N
-        Payment.setText("Mark Payment");
+        Payment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Dollar1.jpg"))); // NOI18N
+        Payment.setText("Make Payment");
         Payment.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(204, 204, 255)));
         Payment.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Payment.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -182,16 +182,15 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Payment);
-        Payment.setBounds(330, 380, 150, 160);
+        Payment.setBounds(340, 380, 150, 170);
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
         jLabel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Admin page Activity", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 18))); // NOI18N
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(30, 130, 750, 480);
+        jLabel5.setBounds(30, 110, 750, 480);
 
         jMenu1.setText("File");
 
-        hel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/help.jpg"))); // NOI18N
         hel.setText("Help");
         hel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,7 +199,6 @@ public class AdminPage extends javax.swing.JFrame {
         });
         jMenu1.add(hel);
 
-        lo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Exit.png"))); // NOI18N
         lo.setText("Logout");
         lo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,7 +209,12 @@ public class AdminPage extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        ex.setText("Edit");
+        ex.setText("Close App");
+        ex.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exMouseClicked(evt);
+            }
+        });
         ex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exActionPerformed(evt);
@@ -229,7 +232,7 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_registerStudentActionPerformed
 
     private void updateStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateStudentActionPerformed
-      UpDateStudent update = new UpDateStudent();
+      StudentUpdate update = new StudentUpdate();
       update.setVisible(true);
     }//GEN-LAST:event_updateStudentActionPerformed
 
@@ -268,12 +271,16 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_loActionPerformed
 
     private void exActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exActionPerformed
-        System.exit(0);
+     
     }//GEN-LAST:event_exActionPerformed
 
     private void PaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaymentActionPerformed
        MakePayment.main(new String[] {});
     }//GEN-LAST:event_PaymentActionPerformed
+
+    private void exMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exMouseClicked
+          CloseApp.main(new String[] {});
+    }//GEN-LAST:event_exMouseClicked
 
     /**
      * @param args the command line arguments

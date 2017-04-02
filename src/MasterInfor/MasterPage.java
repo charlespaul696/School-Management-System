@@ -319,7 +319,6 @@ public class MasterPage extends javax.swing.JFrame {
         back = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane21 = new javax.swing.JScrollPane();
         jLayeredPane1 = new javax.swing.JLayeredPane();
@@ -353,10 +352,10 @@ public class MasterPage extends javax.swing.JFrame {
         email = new javax.swing.JFormattedTextField();
         ph = new javax.swing.JFormattedTextField();
         ma = new javax.swing.JRadioButton();
-        fe = new javax.swing.JCheckBox();
         com = new javax.swing.JComboBox<>();
         jScrollPane25 = new javax.swing.JScrollPane();
         dd = new javax.swing.JTable();
+        fe = new javax.swing.JRadioButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -503,13 +502,16 @@ public class MasterPage extends javax.swing.JFrame {
         jScrollPane24 = new javax.swing.JScrollPane();
         jScrollPane23 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel27 = new javax.swing.JPanel();
+        jScrollPane26 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         help = new javax.swing.JMenuItem();
         logoutf = new javax.swing.JMenuItem();
         cl = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(300, 50, 0, 0));
         setResizable(false);
 
@@ -528,20 +530,7 @@ public class MasterPage extends javax.swing.JFrame {
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedPane1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1187, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 634, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Welcome Salutation", jPanel2);
-
-        jLayeredPane1.setBackground(new java.awt.Color(51, 51, 51));
+        jLayeredPane1.setBackground(new java.awt.Color(204, 204, 204));
         jLayeredPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "UpDate Form", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -704,9 +693,6 @@ public class MasterPage extends javax.swing.JFrame {
         gg.add(ma);
         ma.setText("Male");
 
-        gg.add(fe);
-        fe.setText("Female");
-
         com.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         com.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36" }));
 
@@ -719,6 +705,9 @@ public class MasterPage extends javax.swing.JFrame {
             }
         ));
         jScrollPane25.setViewportView(dd);
+
+        gg.add(fe);
+        fe.setText("Female");
 
         jLayeredPane1.setLayer(jLabel29, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel30, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -748,9 +737,9 @@ public class MasterPage extends javax.swing.JFrame {
         jLayeredPane1.setLayer(email, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ph, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ma, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(fe, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(com, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jScrollPane25, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(fe, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -784,11 +773,12 @@ public class MasterPage extends javax.swing.JFrame {
                                     .addComponent(fn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ln, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(on, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                        .addComponent(ma)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fe))
-                                    .addComponent(com, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane1Layout.createSequentialGroup()
+                                            .addComponent(ma)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(fe))
+                                        .addComponent(com, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
@@ -910,12 +900,13 @@ public class MasterPage extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+                .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab(" Student", jPanel5);
 
+        jPanel15.setBackground(new java.awt.Color(204, 204, 204));
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Make Payment", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 18))); // NOI18N
 
         payt.setModel(new javax.swing.table.DefaultTableModel(
@@ -1050,7 +1041,7 @@ public class MasterPage extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(380, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1062,6 +1053,7 @@ public class MasterPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Make Payment", jPanel6);
 
+        jPanel14.setBackground(new java.awt.Color(204, 204, 204));
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Test Activity", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 0, 14))); // NOI18N
 
         tt.setModel(new javax.swing.table.DefaultTableModel(
@@ -1257,10 +1249,12 @@ public class MasterPage extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Tests", jPanel8);
+
+        jPanel13.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setText("Student id");
@@ -1329,6 +1323,11 @@ public class MasterPage extends javax.swing.JFrame {
         cance.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Undo.png"))); // NOI18N
         cance.setText("Clear Text");
+        cance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                canceActionPerformed(evt);
+            }
+        });
 
         scorere.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         scorere.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Apply.png"))); // NOI18N
@@ -1443,7 +1442,7 @@ public class MasterPage extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addContainerGap(257, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1455,6 +1454,7 @@ public class MasterPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab(" Score", jPanel9);
 
+        jPanel12.setBackground(new java.awt.Color(204, 204, 204));
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Subject Update Page", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -1568,7 +1568,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(315, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1577,11 +1577,12 @@ public class MasterPage extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab(" Subject", jPanel10);
 
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty Udate Page", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 2, 18))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -1702,7 +1703,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(364, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1711,7 +1712,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Faculty", jPanel7);
@@ -1720,11 +1721,11 @@ public class MasterPage extends javax.swing.JFrame {
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1187, Short.MAX_VALUE)
+            .addGap(0, 1082, Short.MAX_VALUE)
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 634, Short.MAX_VALUE)
+            .addGap(0, 602, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("", jPanel16);
@@ -1799,7 +1800,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton9)
                         .addGap(29, 29, 29)
                         .addComponent(StuTable, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1810,7 +1811,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(StuTable, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Students", jPanel17);
@@ -1864,7 +1865,7 @@ public class MasterPage extends javax.swing.JFrame {
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(373, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1877,7 +1878,7 @@ public class MasterPage extends javax.swing.JFrame {
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(4, 4, 4)))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Score", jPanel19);
@@ -1931,7 +1932,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton4)
                         .addGap(37, 37, 37)
                         .addComponent(classview, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(406, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1944,7 +1945,7 @@ public class MasterPage extends javax.swing.JFrame {
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(2, 2, 2)))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Class", jPanel20);
@@ -1999,7 +2000,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton3)
                         .addGap(72, 72, 72)
                         .addComponent(classview1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(406, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2012,7 +2013,7 @@ public class MasterPage extends javax.swing.JFrame {
                     .addGroup(jPanel21Layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(3, 3, 3)))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Department", jPanel21);
@@ -2067,7 +2068,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton14)
                         .addGap(40, 40, 40)
                         .addComponent(Sectionview, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(406, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2080,7 +2081,7 @@ public class MasterPage extends javax.swing.JFrame {
                     .addGroup(jPanel22Layout.createSequentialGroup()
                         .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(3, 3, 3)))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Class Section", jPanel22);
@@ -2135,7 +2136,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton16)
                         .addGap(18, 18, 18)
                         .addComponent(facultyview, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(406, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2146,7 +2147,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(facultyview, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                     .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Faculty", jPanel23);
@@ -2201,7 +2202,7 @@ public class MasterPage extends javax.swing.JFrame {
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2212,7 +2213,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Financialview, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                     .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Paid Fees", jPanel24);
@@ -2271,7 +2272,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addComponent(jButton18)
                         .addGap(33, 33, 33)
                         .addComponent(SubView, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2287,6 +2288,7 @@ public class MasterPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("View Subjects", jPanel18);
 
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Department", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2396,7 +2398,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2405,7 +2407,7 @@ public class MasterPage extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Department", jPanel11);
@@ -2437,20 +2439,66 @@ public class MasterPage extends javax.swing.JFrame {
             .addGroup(jPanel25Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 844, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel25Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(320, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Tests", jPanel25);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Help book.png"))); // NOI18N
+        jPanel27.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Welcome page", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 18))); // NOI18N
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("   \n    Welcome To School Management System\n                      \n         \n            Peaceman International School\n                    Aspiring for Excellency \n");
+        jScrollPane26.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(152, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(366, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Welcome Salutation", jPanel2);
+
         jMenu1.setText("File");
+        jMenu1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         help.setText("Help");
         help.addActionListener(new java.awt.event.ActionListener() {
@@ -2470,7 +2518,6 @@ public class MasterPage extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        cl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Close.png"))); // NOI18N
         cl.setText("Close App");
         cl.setToolTipText("");
         cl.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2498,8 +2545,8 @@ public class MasterPage extends javax.swing.JFrame {
                 .addComponent(back)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2510,7 +2557,7 @@ public class MasterPage extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2541,7 +2588,7 @@ public class MasterPage extends javax.swing.JFrame {
     }//GEN-LAST:event_clActionPerformed
 
     private void clMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clMouseClicked
-        System.exit(0);
+         CloseApp.main(new String[] {});
     }//GEN-LAST:event_clMouseClicked
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
@@ -2871,6 +2918,19 @@ public class MasterPage extends javax.swing.JFrame {
             data.add(email.getText());
             data.add(did.getText());
             model.addRow(data);
+            
+        id.setText("");
+        fn.setText("");
+        ln.setText("");
+        on.setText("");
+        //(male.isSelected() ? "Male" : "Fmale");
+        com.setSelectedItem("");
+        st.setText("");
+        re.setText("");
+        ad.setText("");
+        ph.setText("");
+        email.setText("");
+        did.setText("");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error Massage "+e.getMessage());
         }
@@ -2890,6 +2950,11 @@ public class MasterPage extends javax.swing.JFrame {
         
 
        finacialcreate.create(getfinacial);
+       
+         sid.setText("");
+        cid.setText("");
+        ts.setText("");
+        am.setText("");
     }//GEN-LAST:event_submitActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -2994,6 +3059,14 @@ public class MasterPage extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Please fill in the Spaces provided to you before you Submit..");
             } else if (!stid.getText().isEmpty() && !classsid.getText().isEmpty()) {
                 testcreate.create(getTest);
+                 stid.setText("");
+                  clid.setText("");
+                  deid.setText("");
+                  suid.setText("");
+                   classsid.setText("");
+                  c1.setText("");
+                    c2.setText("");
+                      c3.setText("");
             }
         } catch (NumberFormatException numberFormatException) {
             JOptionPane.showMessageDialog(null, "Invalid Format...   number Format Exception..");
@@ -3062,6 +3135,11 @@ public class MasterPage extends javax.swing.JFrame {
             
             if (!stu.getText().isEmpty() && !cla.getText().isEmpty()) {
                 markcreate.create(getmark);
+             stu.setText("");
+             sub.setText("");
+             cla.setText("");
+            tes.setText("");
+            exam.setText("");
             } else if (stu.getText().isEmpty() && cla.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please fill in the Space provided to you..");
             }
@@ -3107,6 +3185,9 @@ public class MasterPage extends javax.swing.JFrame {
             
             if (!subjectid.getText().isEmpty() && !subjectname.getText().isEmpty()) {
                 subjectcreate.create(getsubject);
+                 subjectid.setText("");
+           subjectname.setText("");
+           subjectunits.setText("");
             } else if (subjectid.getText().isEmpty() && subjectname.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please fill in the Space provided to you..");
             }
@@ -3128,6 +3209,9 @@ public class MasterPage extends javax.swing.JFrame {
             
             if (!subjectid.getText().isEmpty() && !subjectname.getText().isEmpty()) {
                 subjectcreate.update(getsubject);
+                 subjectid.setText("");
+           subjectname.setText("");
+           subjectunits.setText("");
             } else if (subjectid.getText().isEmpty() && subjectname.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please fill in the Space provided to you..");
             }
@@ -3155,6 +3239,9 @@ public class MasterPage extends javax.swing.JFrame {
             
             if (!fid.getText().isEmpty() && !fname.getText().isEmpty()) {
                 facultycreate.create(getfaculty);
+                 fid.setText("");
+                 fname.setText("");
+                 fdeparid.setText("");
             } else if (fid.getText().isEmpty() && fname.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please fill in the Space provided to you..");
             }
@@ -3194,6 +3281,14 @@ public class MasterPage extends javax.swing.JFrame {
        depart.setText("");
        dname.setText("");
     }//GEN-LAST:event_cancelDepatmentActionPerformed
+
+    private void canceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canceActionPerformed
+             stu.setText("");
+             sub.setText("");
+             cla.setText("");
+             tes.setText("");
+             exam.setText("");
+    }//GEN-LAST:event_canceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3282,7 +3377,7 @@ public class MasterPage extends javax.swing.JFrame {
     private javax.swing.JButton facultyApply;
     private javax.swing.JButton facultyview;
     private javax.swing.JTextField fdeparid;
-    private javax.swing.JCheckBox fe;
+    private javax.swing.JRadioButton fe;
     private javax.swing.JTextField fid;
     private javax.swing.JTextField fn;
     private javax.swing.JTextField fname;
@@ -3359,6 +3454,7 @@ public class MasterPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -3384,6 +3480,7 @@ public class MasterPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane24;
     private javax.swing.JScrollPane jScrollPane25;
+    private javax.swing.JScrollPane jScrollPane26;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -3393,6 +3490,7 @@ public class MasterPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField ln;
     private javax.swing.JMenuItem logoutf;
     private javax.swing.JRadioButton ma;

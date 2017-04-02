@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -40,14 +41,23 @@ public class GetAllStudent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Studentup = new javax.swing.JPopupMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
         StudentTable = new javax.swing.JTable();
         reset = new javax.swing.JButton();
         can = new javax.swing.JButton();
 
+        Studentup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StudentupMouseClicked(evt);
+            }
+        });
+
+        setResizable(false);
+
         StudentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Id", "FirstName", "LastName", "OtherName", "Gender", "Age", "State", "Religion", "Address", "Phone", "Email", "Department"
@@ -59,6 +69,11 @@ public class GetAllStudent extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        StudentTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StudentTableMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(StudentTable);
@@ -155,6 +170,12 @@ public class GetAllStudent extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_canActionPerformed
 
+    private void StudentupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudentupMouseClicked
+    }//GEN-LAST:event_StudentupMouseClicked
+
+    private void StudentTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudentTableMouseClicked
+    }//GEN-LAST:event_StudentTableMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -192,6 +213,7 @@ public class GetAllStudent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable StudentTable;
+    private javax.swing.JPopupMenu Studentup;
     private javax.swing.JButton can;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton reset;
