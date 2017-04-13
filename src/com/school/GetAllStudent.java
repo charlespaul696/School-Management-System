@@ -44,6 +44,8 @@ public class GetAllStudent extends javax.swing.JFrame {
         Studentup = new javax.swing.JPopupMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
         StudentTable = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         reset = new javax.swing.JButton();
         can = new javax.swing.JButton();
 
@@ -53,7 +55,10 @@ public class GetAllStudent extends javax.swing.JFrame {
             }
         });
 
+        setBackground(new java.awt.Color(153, 153, 153));
+        setMinimumSize(new java.awt.Dimension(1130, 400));
         setResizable(false);
+        getContentPane().setLayout(null);
 
         StudentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -78,6 +83,25 @@ public class GetAllStudent extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(StudentTable);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(0, 0, 1133, 280);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(280, 160, 100, 100);
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+
         reset.setBackground(new java.awt.Color(153, 153, 153));
         reset.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Database.png"))); // NOI18N
@@ -98,28 +122,29 @@ public class GetAllStudent extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(368, 368, 368)
                 .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107)
+                .addGap(87, 87, 87)
                 .addComponent(can, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addContainerGap(366, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reset, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                    .addComponent(can, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(293, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(can, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 1130, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -215,6 +240,8 @@ public class GetAllStudent extends javax.swing.JFrame {
     private javax.swing.JTable StudentTable;
     private javax.swing.JPopupMenu Studentup;
     private javax.swing.JButton can;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables

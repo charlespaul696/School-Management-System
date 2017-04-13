@@ -46,9 +46,8 @@ public class Studentimp implements Istudent{
            pre.executeUpdate();
          JOptionPane.showMessageDialog(null, " You Have Successfully Registered Student Number  "+obj.getId());
         } catch (SQLException ex) {
-//            ex.printStackTrace();
-               JOptionPane.showMessageDialog(null, "Error Massage \n Please Enter numbers for Phone number \n"
-                       + "Make Sure you fill up the fields before you Submit..");
+         //  ex.printStackTrace();
+               JOptionPane.showMessageDialog(null, "Error Massage \n Student ID Already exist..\n    " + obj.getId());
         }
       
     }
@@ -91,8 +90,7 @@ public class Studentimp implements Istudent{
          JOptionPane.showMessageDialog(null, " You Have Successfully UpDated Student Number  "+obj.getId());
         } catch (SQLException ex) {
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error Massage \n Please Enter numbers for Phone number \n"
-                       + "Make Sure you fill up the fields before you Submit..");
+            JOptionPane.showMessageDialog(null, "Error Massage \n Student ID Already exist..\n    " + obj.getId());
         }   
     }
 

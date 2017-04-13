@@ -5,6 +5,7 @@
  */
 package com.school;
 
+import MasterInfor.HelpPage;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,16 +43,17 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Payment = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        hel = new javax.swing.JMenuItem();
-        lo = new javax.swing.JMenuItem();
         ex = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setBounds(new java.awt.Rectangle(300, 50, 0, 0));
-        setMinimumSize(new java.awt.Dimension(830, 700));
-        setPreferredSize(new java.awt.Dimension(750, 630));
+        setMinimumSize(new java.awt.Dimension(785, 670));
+        setPreferredSize(new java.awt.Dimension(700, 630));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -135,7 +137,7 @@ public class AdminPage extends javax.swing.JFrame {
         getContentPane().add(updateStudent);
         updateStudent.setBounds(560, 380, 150, 160);
 
-        back.setBackground(new java.awt.Color(204, 204, 255));
+        back.setBackground(new java.awt.Color(153, 153, 153));
         back.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Back.png"))); // NOI18N
         back.setText("Logout");
@@ -184,29 +186,15 @@ public class AdminPage extends javax.swing.JFrame {
         getContentPane().add(Payment);
         Payment.setBounds(340, 380, 150, 170);
 
-        jLabel5.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Admin page Activity", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 1, 18))); // NOI18N
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(30, 110, 750, 480);
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 100, 790, 520);
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 790, 100);
 
         jMenu1.setText("File");
-
-        hel.setText("Help");
-        hel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                helActionPerformed(evt);
-            }
-        });
-        jMenu1.add(hel);
-
-        lo.setText("Logout");
-        lo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loActionPerformed(evt);
-            }
-        });
-        jMenu1.add(lo);
-
         jMenuBar1.add(jMenu1);
 
         ex.setText("Close App");
@@ -221,6 +209,22 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(ex);
+
+        jMenu2.setText("Logout");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Help");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -258,18 +262,6 @@ public class AdminPage extends javax.swing.JFrame {
         ko.setVisible(true);
     }//GEN-LAST:event_getAllStudentActionPerformed
 
-    private void helActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helActionPerformed
-         JOptionPane.showMessageDialog(null, "To get the next paage, you have to select a field provided\n"
-               + "To you and make sure that you follow the instructions\n"
-               + "And if you fail to understand functionality of this program\n"
-               + "please contact a software engineer near you ");
-    }//GEN-LAST:event_helActionPerformed
-
-    private void loActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loActionPerformed
-       ind.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_loActionPerformed
-
     private void exActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exActionPerformed
      
     }//GEN-LAST:event_exActionPerformed
@@ -281,6 +273,15 @@ public class AdminPage extends javax.swing.JFrame {
     private void exMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exMouseClicked
           CloseApp.main(new String[] {});
     }//GEN-LAST:event_exMouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+         ind.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        HelpPage.main(new String[] {});
+    }//GEN-LAST:event_jMenu3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -323,14 +324,15 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JMenu ex;
     private javax.swing.JButton getAllStudent;
     private javax.swing.JButton getoneStudent;
-    private javax.swing.JMenuItem hel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem lo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton registerScore;
     private javax.swing.JButton registerStudent;
     private javax.swing.JButton updateStudent;

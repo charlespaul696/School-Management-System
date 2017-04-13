@@ -22,11 +22,7 @@ public class index extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     Loginpage obj = new Loginpage();
-     private PreparedStatement pre;
-    private ResultSet ree;
-    MySqLConnection my = new MySqLConnection();
-     Connection con = my.getConnect();
-   private DefaultTableModel Model;
+     
     public index() {
         initComponents();
        obj.setVisible(true);

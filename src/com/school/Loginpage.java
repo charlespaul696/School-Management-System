@@ -7,6 +7,7 @@ package com.school;
 
 
 import MasterInfor.MasterPage;
+import MasterInfor.MasterRegistrationPage;
 import connect.MySqLConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -267,7 +268,7 @@ public class Loginpage extends javax.swing.JFrame {
 //            setVisible(false);
 //        }
 //       else if(un.matches(add4)&& pw.matches(add5)){
-//            MasterPage master = new MasterPage();
+//            MasterRegistrationPage master = new MasterRegistrationPage();
 //            master.setVisible(true);
 //          //  JOptionPane.showMessageDialog(null, " THIS PAGE IS UNDER CONSTRUCTION ...");
 //            
@@ -285,55 +286,7 @@ public class Loginpage extends javax.swing.JFrame {
     }//GEN-LAST:event_bloginMousePressed
 
     private void bloginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bloginKeyPressed
-//         String sql = "Select password,username from Signup where roll_id = 'admin'";
-//     
-//        try{
-//            pre = con.prepareStatement(sql);
-//          ree = pre.executeQuery();
-//
-//            while(ree.next()){
-//             
-//                add2 = ree.getString("username");
-//                
-//                add3 = ree.getString("password");
-//                
-//            }
-//
-//        String sqll = "Select password,username from Signup where roll_id = 'principal1'";
-//     
-//        
-//            pree = con.prepareStatement(sqll);
-//          reee = pree.executeQuery();
-//
-//            while(reee.next()){
-//             
-//                add4 = reee.getString("username");
-//                
-//                add5 = reee.getString("password");
-//                
-//            }
-//        String un = uname.getText();
-//        String pw = pword.getText();
-//        AdminPage obj = new AdminPage();
-//        if(un.matches(add2)&& pw.matches(add3)){
-//          uname.setText("");
-//          pword.setText("");
-//
-//            obj.setVisible(true);
-//            setVisible(false);
-//        }
-//       else if(un.matches(add4)&& pw.matches(add5)){
-//            MasterPage master = new MasterPage();
-//            master.setVisible(true);
-//          //  JOptionPane.showMessageDialog(null, " THIS PAGE IS UNDER CONSTRUCTION ...");
-//            
-//        } if(!un.matches(add2)&& !pw.matches(add3) || !un.matches(add4)&& !pw.matches(add5)){
-//            JOptionPane.showMessageDialog(null, "You have entered a wrong password or username....");
-//            
-//        }
-//         }catch(Exception e){
-//
-//        }
+//       
     }//GEN-LAST:event_bloginKeyPressed
 
     private void bloginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bloginMouseEntered
@@ -363,7 +316,8 @@ public class Loginpage extends javax.swing.JFrame {
                 
                 add5 = reee.getString("password");
                 
-            }
+            }  
+            MasterPage master = new MasterPage();
         String un = uname.getText();
         String pw = pword.getText();
         AdminPage obj = new AdminPage();
@@ -375,11 +329,11 @@ public class Loginpage extends javax.swing.JFrame {
             setVisible(false);
         }
        else if(un.matches(add4)&& pw.matches(add5)){
-            MasterPage master = new MasterPage();
+            setVisible(false);
             master.setVisible(true);
           //  JOptionPane.showMessageDialog(null, " THIS PAGE IS UNDER CONSTRUCTION ...");
             
-        } if(!un.matches(add2)&& !pw.matches(add3) || !un.matches(add4)&& !pw.matches(add5)){
+        } if(!un.matches(add2)&& !pw.matches(add3) && !un.matches(add4) && !pw.matches(add5)){
             JOptionPane.showMessageDialog(null, "You have entered a wrong password or username....");
             
         }

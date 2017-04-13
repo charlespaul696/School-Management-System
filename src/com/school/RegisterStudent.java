@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -272,7 +272,11 @@ public class RegisterStudent extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(table);
 
-        ph.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        try {
+            ph.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         ph.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         re.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -558,8 +562,8 @@ public class RegisterStudent extends javax.swing.JFrame {
              !re.getSelectedItem().toString().isEmpty() &&
             !ad.getText().isEmpty() &&
              !ph.getText().isEmpty() &&
-            email.getText().endsWith("@gmail.com") || email.getText().endsWith("@yahoo.com") &&
-             !did.getText().isEmpty())
+             email.getText().endsWith("@gmail.com")  || email.getText().endsWith("@gmail.com") && 
+            !did.getText().isEmpty())
             
             {
                 
@@ -605,7 +609,7 @@ public class RegisterStudent extends javax.swing.JFrame {
        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error Massage  "
                     + "\nEmpty Values or unplaced Character values "
-                    + "\non number field" );
+                    + "\non number field"+e.getMessage() );
         }
         
     }//GEN-LAST:event_registerActionPerformed

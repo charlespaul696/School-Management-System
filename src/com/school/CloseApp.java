@@ -16,6 +16,7 @@ public class CloseApp extends javax.swing.JFrame {
      */
     public CloseApp() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
