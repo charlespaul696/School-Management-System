@@ -1687,7 +1687,7 @@ public class MasterRegistrationPage extends javax.swing.JFrame {
 
         cancelDepatment.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         cancelDepatment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/Close.png"))); // NOI18N
-        cancelDepatment.setText("Cl,ear Text");
+        cancelDepatment.setText("Clear Text");
         cancelDepatment.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(153, 153, 153)));
         cancelDepatment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

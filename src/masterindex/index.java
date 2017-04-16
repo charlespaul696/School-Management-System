@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.school;
+package masterindex;
 
+import com.school.Loginpage;
 import connect.MySqLConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
